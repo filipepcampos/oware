@@ -51,8 +51,8 @@ bool Board::validatePlay(char move, int id){
     int initial_pos = id == 1 ? move - 'a' : 11 - (move - 'a');
     int pos = initial_pos;
     int seeds = simulated_board[pos];
-    simulated_board[pos] = 0;
     if(seeds == 0) return false;
+    simulated_board[pos] = 0;
     while(seeds) {
         pos++;
         if(pos % 12 != initial_pos){
@@ -60,28 +60,18 @@ bool Board::validatePlay(char move, int id){
             seeds--;
         }
     }
-    int lower_bound = 0 + id*6, upper_bound = 5 + id*6;
-    while( (simulated_board[pos] == 2 || simulated_board[pos] == 3) && pos >= lower_bound && pos <= upper_bound ){
-        simulated_board[pos] = 0;
-        pos--;
-    }
-    int opposite = 1 - id;
-    bool result = false;
-    if(hasSeeds(opposite, simulated_board)) result = true;
-    if(!hasSeeds(opposite, simulated_board) && !hasSeeds(id, simulated_board)) result = true;
-    return result;
+    int opponent = 1 - id;
+    return hasSeeds(opponent, simulated_board);
 }
 
+// TODO: Fix name, this is stupid!
 bool Board::gameOver(int id, std::string name){
-    if(score[0] >= 25){
-        std::cout << "Final Score: " << COLOR[0] << score[0] << RESET << " - " << COLOR[1] << score[1] << RESET << std::endl;
-        std::cout << COLOR[0] << name << RESET << " wins!" << std::endl;
-        return true;
-    }
-    if(score[1] >= 25){
-        std::cout << "Final Score: " << COLOR[0] << score[0] << RESET << " - " << COLOR[1] << score[1] << RESET << std::endl;
-        std::cout << COLOR[1] << name << RESET << " wins!" << std::endl;
-        return true;
+    for(int i = 0; i < 2; i++){
+        if(score[i] >= 25){
+            std::cout << "Final Score: " << COLOR[0] << score[0] << RESET << " - " << COLOR[1] << score[1] << RESET << std::endl;
+            std::cout << COLOR[i] << name << RESET << " wins!" << std::endl;
+            return true;
+        }
     }
     if(score[0] == 24 && score[1] == 24){
         std::cout << "Final Score: " << COLOR[0] << score[0] << RESET << " - " << COLOR[1] << score[1] << RESET << std::endl;
@@ -105,7 +95,6 @@ bool Board::gameOver(int id, std::string name){
 }
 
 void Board::forceEnd(){
-    end = true;
     std::cout << std::endl << "The game has been forced to end" << std::endl;
     for(int i = 0; i < 6; i++){
         score[1] += board[i];
@@ -139,6 +128,7 @@ void Board::print(){
     std::cout << std::endl;
 }
 
+/// Print house dividers
 void Board::printDividers(){
     std::cout << std::setw(SCORE_INDENT) << '|';
     for(int i = 0; i < 6; i++){
@@ -147,6 +137,7 @@ void Board::printDividers(){
     std::cout << std::endl;
 }
 
+/// Print letters identifying the letter of each house
 void Board::printLetters(){
     std::cout << std::setw(SCORE_INDENT + HOUSE_SPACING / 2 + 1);
     for(char c = 'A'; c <= 'F'; c++){
@@ -155,6 +146,7 @@ void Board::printLetters(){
     std::cout << std::setw(0) << std::endl;
 }
 
+/// Prints line with seed values on it
 void Board::printSeeds(int id){
     int printBoard[2][6];
     for(int i = 11, j = 0; i >= 0; i--, j++){
@@ -171,6 +163,7 @@ void Board::printSeeds(int id){
     std::cout << std::endl;
 }
 
+/// Prints the middle line of the board and scores on either end.
 void Board::printMiddle(){
     std::cout << COLOR[0] << std::setw(SCORE_INDENT - SCORE_MARGIN) << score[0] << RESET
         << std::setw(SCORE_MARGIN) << '|';

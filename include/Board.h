@@ -33,17 +33,19 @@ public:
     bool gameOver(int id, std::string name);
 
     /**
-     * Tie the game
+     * Force the game to end in case of a infinite cycle
+     * Each player will capture the seeds on their side of the board
      * @return (none)
      */
     void forceEnd();
 
 private:
-    /// ANSI Escape codes to manipulate the output terminal
+    // ANSI Escape codes to manipulate the output terminal
     const std::string COLOR[2] = {"\033[36m", "\033[31m"};
     const std::string RESET = "\033[0m";
     const std::string CLEAR = "\033[2J\033[0;0H";
 
+    // Sizing of the board
     const int TOTAL_WIDTH = 100;
     const int LEFT_MARGIN = 5;
     const int SCORE_INDENT = 20;
@@ -53,12 +55,28 @@ private:
     std::array<int, 12> board = {4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4};
     std::array<int, 12> simulated_board = board;
     int score[2] = {0, 0};
-    bool end = false;
 
+    /**
+     * Verify if a given player has any seeds. Can be used to check main board or simulated board
+     * @param id - id of the player to be checked
+     * @param arr - board to be checked
+     * @return TRUE if the player has any seeds in their side of the board
+     */
     bool hasSeeds(int id, std::array<int, 12> arr);
+
+    /**
+     * Make a capture after sowing. Grand slams (Capture of every house) will be automatically ignored
+     * @param pos - position of last seed sowed
+     * @param id - id of the player playing
+     */
     void capture(int pos, int id);
 
+    /**
+     * Print the board on screen
+     */
     void print();
+
+    // Helper functions for print()
     void printDividers();
     void printLetters();
     void printSeeds(int id);
