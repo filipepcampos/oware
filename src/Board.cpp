@@ -9,67 +9,78 @@ Board::Board(){
 }
 
 void Board::play(char move, int id){
-    int initial_pos = id == 1 ? move - 'a' : 11 - (move - 'a');
-    int pos = initial_pos;
-    int seeds = board[pos];
-    board[pos] = 0;
-    while(seeds) {
-        pos++;
-        if(pos % 12 != initial_pos){
-            board[pos % 12]++;
-            seeds--;
-        }
-    }
-    capture(pos % 12, id);
+    int pos = sow(board, move, id);
+    score[id] += capture(board, pos, id);
     std::cout << CLEAR;
     print();
 }
 
-void Board::capture(int pos, int id) {
+int Board::sow(std::array<int, 12> &b, char move, int id){
+    int initial_pos = id == 1 ? move - 'a' : 11 - (move - 'a');
+    int pos = initial_pos;
+    int seeds = b[pos];
+    b[pos] = 0;
+    while(seeds) {
+        pos++;
+        if(pos % 12 != initial_pos){
+            b[pos % 12]++;
+            seeds--;
+        }
+    }
+    return pos % 12;
+}
+
+int Board::capture(std::array<int, 12> &b, int pos, int id) {
     bool grand_slam = true;
     int lower_bound = 0 + id*6, upper_bound = 5 + id*6;
-    for(int i = pos; i >= lower_bound; i--){
-        if(board[i] != 2 || board[i] != 3){
+    for(int i = upper_bound; i >= lower_bound; i--){
+        if(i > pos && b[i] > 0){
+            grand_slam = false;
+        }
+        else if(b[i] != 2 && b[i] != 3 && b[i] > 0){
             grand_slam = false;
         }
     }
 
-    // If player can grand slam, the other player would be left without seeds. To avoid so, the seeds will not
-    // be captured.
+    int seeds_captured = 0;
     if(!grand_slam){
-        while( (board[pos] == 2 || board[pos] == 3) && pos >= lower_bound && pos <= upper_bound ){
-            score[id] += board[pos];
-            board[pos] = 0;
+        while( (b[pos] == 2 || b[pos] == 3) && pos >= lower_bound && pos <= upper_bound ){
+            seeds_captured += b[pos];
+            b[pos] = 0;
             pos--;
         }
     }
+    return seeds_captured;
 }
 
-
 bool Board::validatePlay(char move, int id){
-    simulated_board = board;
     int initial_pos = id == 1 ? move - 'a' : 11 - (move - 'a');
-    int pos = initial_pos;
-    int seeds = simulated_board[pos];
-    if(seeds == 0) return false;
-    simulated_board[pos] = 0;
-    while(seeds) {
-        pos++;
-        if(pos % 12 != initial_pos){
-            simulated_board[pos % 12]++;
-            seeds--;
-        }
-    }
+    if(board[initial_pos] == 0) return false;
+    std::array<int, 12> simulated_board = board;
+
+    sow(simulated_board, move, id);
     int opponent = 1 - id;
     return hasSeeds(opponent, simulated_board);
 }
 
-// TODO: Fix name, this is stupid!
-bool Board::gameOver(int id, std::string name){
+bool Board::validatePlay(char move, int id, int &seeds_count){
+    int initial_pos = id == 1 ? move - 'a' : 11 - (move - 'a');
+    if(board[initial_pos] == 0) return false;
+    std::array<int, 12> simulated_board = board;
+
+    int pos = sow(simulated_board, move, id);
+    seeds_count = capture(simulated_board, pos, id);
+
+    int opponent = 1 - id;
+    return hasSeeds(opponent, simulated_board);;
+}
+
+
+bool Board::gameOver(int id, std::string names[2]){
     for(int i = 0; i < 2; i++){
         if(score[i] >= 25){
             std::cout << "Final Score: " << COLOR[0] << score[0] << RESET << " - " << COLOR[1] << score[1] << RESET << std::endl;
-            std::cout << COLOR[i] << name << RESET << " wins!" << std::endl;
+            std::cout << COLOR[i] << names[id] << RESET << " wins!" << std::endl;
             return true;
         }
     }
@@ -91,7 +102,7 @@ bool Board::gameOver(int id, std::string name){
     for(int i = 6; i < 12; i++){
         score[0] += board[i];
     }
-    return gameOver(id, name);
+    return gameOver(id, names);
 }
 
 void Board::forceEnd(){
@@ -108,7 +119,7 @@ bool Board::hasSeeds(int id, std::array<int, 12> arr){
     int lower_bound = 0 + (1-id)*6, upper_bound = 5 + (1-id)*6;
     for(int i = lower_bound; i <= upper_bound; i++){
         int seeds = arr[i];
-        if(seeds > 0){ // TODO: Verify if condition works properly
+        if(seeds > 0){
             return true;
         }
     }

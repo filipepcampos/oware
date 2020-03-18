@@ -12,11 +12,19 @@ array
 string
 -
 
-/cygdrive/c/FEUP/prog/oware/src/Board.cpp
+/cygdrive/c/FEUP/prog/oware/include/Player.h
+string
+-
+Board.h
+/cygdrive/c/FEUP/prog/oware/include/Board.h
+
+/cygdrive/c/FEUP/prog/oware/src/Player.cpp
 iostream
 -
-iomanip
+algorithm
 -
+../include/Player.h
+/cygdrive/c/FEUP/prog/oware/include/Player.h
 ../include/Board.h
 /cygdrive/c/FEUP/prog/oware/include/Board.h
 

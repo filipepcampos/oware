@@ -9,13 +9,13 @@ public:
     /**
      * Player constructor
      * @param str - Name of the player
-     * @param id_value - Id of the player (0 or 1)
      * @param enable_ai - Activate or not AI (To be implemented)
      */
-    Player(std::string str, int id_value, bool enable_ai = false);
+    Player(std::string str, bool enable_ai = false);
 
     /**
-     * Read input from cin and submit it to the board, making a play
+     * Read input and submit it to the board, making a play.
+     * If the player is AI, the move will be chosen according to the greatest immediate reward
      * @param &board - Game board
      */
     void play(Board &board);
@@ -27,8 +27,12 @@ private:
     const std::string COLOR[2] = {"\033[36m", "\033[31m"};
     const std::string RESET = "\033[0m";
 
+    static int id_counter;
     int id;
     bool ai;
+
+    void playHuman(Board &board);
+    void playAI(Board &board);
 
     /**
      * Read input from cin and return it
