@@ -99,10 +99,13 @@ private:
      */
     void print();
 
-    // Helper functions for print()
+    /** Print house dividers (|  |  |  |  |  |  |) */
     void printDividers();
+    /** Print letters 'A' through 'F' on top of each house */
     void printLetters();
+    /** Print line with seed numbers (| 4 | 4 | 4 | 4 | 4 | 4 |) */
     void printSeeds(int id);
+    /** Print middle line with scores (0 |----------| 0) */
     void printMiddle();
 };
 

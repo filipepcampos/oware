@@ -34,10 +34,7 @@ int Board::capture(std::array<int, 12> &b, int pos, int id) {
     bool grand_slam = true;
     int lower_bound = 0 + id*6, upper_bound = 5 + id*6;
     for(int i = upper_bound; i >= lower_bound; i--){
-        if(i > pos && b[i] > 0){
-            grand_slam = false;
-        }
-        else if(b[i] != 2 && b[i] != 3 && b[i] > 0){
+        if((i > pos && b[i] > 0) || (b[i] != 2 && b[i] != 3 && b[i] > 0)){
             grand_slam = false;
         }
     }
@@ -64,7 +61,8 @@ bool Board::validatePlay(char move, int id){
 }
 
 bool Board::validatePlay(char move, int id, int &seeds_count){
-    int initial_pos = id == 1 ? move - 'a' : 11 - (move - 'a');
+    int position_number = move - 'a';
+    int initial_pos = id == 1 ? position_number : 11 - position_number;
     if(board[initial_pos] == 0) return false;
     std::array<int, 12> simulated_board = board;
 
@@ -128,12 +126,21 @@ bool Board::hasSeeds(int id, std::array<int, 12> arr){
 
 void Board::print(){
     int bar_width = TOTAL_WIDTH - LEFT_MARGIN;
+
     std::cout << std::endl;
     printLetters();
     std::cout << std::setw(TOTAL_WIDTH) << std::string(bar_width, '-') << std::endl;
-    printDividers(); printSeeds(0); printDividers();
+
+    printDividers();
+    printSeeds(0);
+    printDividers();
+
     printMiddle();
-    printDividers(); printSeeds(1); printDividers();
+
+    printDividers();
+    printSeeds(1);
+    printDividers();
+
     std::cout << std::setw(TOTAL_WIDTH) << std::string(bar_width, '-') << std::endl;
     printLetters();
     std::cout << std::endl;

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <random>
 #include "../include/Player.h"
 #include "../include/Board.h"
 
@@ -38,8 +39,10 @@ void Player::playHuman(Board &board){
 }
 
 void Player::playAI(Board &board){
-    char best_move = 'z';
-    int best_move_seeds = -1;
+    static std::random_device dev;
+    static std::mt19937 engine(dev());
+    char best_move = 'a' + engine() % 6;
+    int best_move_seeds = 0;
     for(char i = 'a'; i <= 'f'; i++){
         int seeds_count;
         if(board.validatePlay(i, id, seeds_count)){
@@ -58,14 +61,14 @@ char Player::readInput(){
     std::cout << "> ";
     std::getline(std::cin, input);
     std::for_each(input.begin(), input.end(), [](char & c){
-        c = ::tolower(c);
+        c = tolower(c);
     });
     while(std::cin.fail() || (input!="a" && input!="b" && input!="c" && input!="d" && input!="e" && input!="f" && input!="end")){
         std::cout << "Invalid input, please type a, b, c, d, e, f (lower or uppercase) or end to end the game." << std::endl;
         std::cout << "> ";
         std::getline(std::cin, input);
         std::for_each(input.begin(), input.end(), [](char & c){
-            c = ::tolower(c);
+            c = tolower(c);
         });
     }
     if(input == "end") return 'x';

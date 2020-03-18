@@ -9,7 +9,7 @@ int main() {
 
     int turn = 0;
     std::string names[2] = {"Player1", "Player2"};
-    Player p1(names[0]);
+    Player p1(names[0], true);
     Player p2(names[1], true);
     Player players[2] = {p1, p2};
 

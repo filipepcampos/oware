@@ -18,13 +18,13 @@ string
 Board.h
 /cygdrive/c/FEUP/prog/oware/include/Board.h
 
-/cygdrive/c/FEUP/prog/oware/src/Player.cpp
+/cygdrive/c/FEUP/prog/oware/src/main.cpp
 iostream
 -
-algorithm
+string
 -
-../include/Player.h
-/cygdrive/c/FEUP/prog/oware/include/Player.h
 ../include/Board.h
 /cygdrive/c/FEUP/prog/oware/include/Board.h
+../include/Player.h
+/cygdrive/c/FEUP/prog/oware/include/Player.h
 
