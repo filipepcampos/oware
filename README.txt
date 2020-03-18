@@ -10,3 +10,6 @@ Game is stored in a single std::array<int, 12>, each position on the board corre
 |  0 |  1 |  2 |  3 |  4 |  5 |
 This organization allows for simpler sowing and capture functions, at the cost of slightly more complex
 print and input functions.
+
+TODOS:
+Force player to make a play that gives opponent seeds

@@ -41,7 +41,7 @@ int Board::capture(std::array<int, 12> &b, int pos, int id) {
 
     int seeds_captured = 0;
     if(!grand_slam){
-        while( (b[pos] == 2 || b[pos] == 3) && pos >= lower_bound && pos <= upper_bound ){
+        while( pos >= lower_bound && (b[pos] == 2 || b[pos] == 3) ){
             seeds_captured += b[pos];
             b[pos] = 0;
             pos--;
