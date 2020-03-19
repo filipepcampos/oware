@@ -41,14 +41,17 @@ void Player::playHuman(Board &board){
 void Player::playAI(Board &board){
     static std::random_device dev;
     static std::mt19937 engine(dev());
-    char best_move = 'a' + engine() % 6;
-    int best_move_seeds = 0;
+    char best_move = 'a';
+    int best_move_seeds = -1;
     for(char i = 'a'; i <= 'f'; i++){
         int seeds_count;
         if(board.validatePlay(i, id, seeds_count)){
             if(seeds_count > best_move_seeds){
                 best_move = i;
                 best_move_seeds = seeds_count;
+            }
+            else if(seeds_count == best_move_seeds and engine() % 3 > 1){
+                best_move = i;
             }
         }
     }

@@ -2,10 +2,18 @@
 #define OWARE_BOARD_H
 #include <array>
 #include <string>
+#include <string>
 
 class Board {
 public:
     Board();
+
+    /**
+     * Get the name of each player
+     * @param name1 - Name of player 1
+     * @param name2 - Name of player 2
+     */
+    void registerPlayerNames(std::string name1, std::string name2);
 
     /**
      * Receive a move to make a play on the board, sowing seeds from a given position.
@@ -41,7 +49,7 @@ public:
      * @param id - id of player who made the play
      * @return TRUE if game has ended, FALSE otherwise.
      */
-    bool gameOver(int id, std::string names[2]);
+    bool gameOver(int id);
 
     /**
      * Force the game to end in case of a infinite cycle
@@ -67,6 +75,7 @@ private:
 
     std::array<int, 12> board = {4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4};
     int score[2] = {0, 0};
+    std::string names[2] = {"Player1", "Player2"};
 
     /**
      * Verify if a given player has any seeds. Can be used to check main board or simulated board

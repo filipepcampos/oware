@@ -8,6 +8,11 @@ Board::Board(){
     print();
 }
 
+void Board::registerPlayerNames(std::string name1, std::string name2){
+    names[0] = name1;
+    names[1] = name2;
+}
+
 void Board::play(char move, int id){
     int pos = sow(board, move, id);
     score[id] += capture(board, pos, id);
@@ -41,7 +46,7 @@ int Board::capture(std::array<int, 12> &b, int pos, int id) {
 
     int seeds_captured = 0;
     if(!grand_slam){
-        while( pos >= lower_bound && (b[pos] == 2 || b[pos] == 3) ){
+        while( pos >= lower_bound && pos <= upper_bound && (b[pos] == 2 || b[pos] == 3) ){
             seeds_captured += b[pos];
             b[pos] = 0;
             pos--;
@@ -74,7 +79,7 @@ bool Board::validatePlay(char move, int id, int &seeds_count){
 }
 
 
-bool Board::gameOver(int id, std::string names[2]){
+bool Board::gameOver(int id){
     for(int i = 0; i < 2; i++){
         if(score[i] >= 25){
             std::cout << "Final Score: " << COLOR[0] << score[0] << RESET << " - " << COLOR[1] << score[1] << RESET << std::endl;
@@ -100,7 +105,7 @@ bool Board::gameOver(int id, std::string names[2]){
     for(int i = 6; i < 12; i++){
         score[0] += board[i];
     }
-    return gameOver(id, names);
+    return gameOver(id);
 }
 
 void Board::forceEnd(){
