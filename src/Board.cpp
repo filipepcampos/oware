@@ -172,7 +172,7 @@ void Board::printLetters(){
 /// Prints line with seed values on it
 void Board::printSeeds(int id){
     int printBoard[2][6];
-    for(int i = 11, j = 0; i >= 0; i--, j++){
+    for(int i = 11, j = 0; i >= 6; i--, j++){
         printBoard[0][j] = board[i];
     }
     for(int i = 0; i < 6; i++){

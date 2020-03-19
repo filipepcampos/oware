@@ -50,7 +50,7 @@ void Player::playAI(Board &board){
                 best_move = i;
                 best_move_seeds = seeds_count;
             }
-            else if(seeds_count == best_move_seeds and engine() % 3 > 1){
+            else if(seeds_count == best_move_seeds && engine() % 3 > 1){
                 best_move = i;
             }
         }

@@ -8,7 +8,7 @@ int main() {
     Board board;
 
     int turn = 0;
-    Player p1("Player1", true);
+    Player p1("Player1");
     Player p2("Player2", true);
     Player players[2] = {p1, p2};
     board.registerPlayerNames(p1.name, p2.name);
