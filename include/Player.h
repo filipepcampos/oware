@@ -11,7 +11,7 @@ public:
      * @param str - Name of the player
      * @param enable_ai - Activate or not AI (To be implemented)
      */
-    Player(std::string str, bool enable_ai = false);
+    Player(bool enable_ai = false);
 
     /**
      * Read input and submit it to the board, making a play.
@@ -27,19 +27,35 @@ private:
     const std::string COLOR[2] = {"\033[36m", "\033[31m"};
     const std::string RESET = "\033[0m";
 
+    const int NAME_MAX_LEN = 20;
     static int id_counter;
     int id;
     bool ai;
+    bool ai_wait = true;
 
+    /**
+     * Prompt player for input and make play according to the given input
+     * @param board - Game board
+     */
     void playHuman(Board &board);
+
+    /**
+     * Choose move that will give maximum number of seeds captured next round
+     * @param board - Game board
+     */
     void playAI(Board &board);
 
     /**
-     * Read input from cin and return it
-     * Valid input: A, B, C, D, E, F, End (Case independent)
+     * Prompt the user for input
      * @return char representing move to make (Will return 'x' if input == "end"), this behaviour is treated in play()
      */
-    char readInput();
+    char inputPrompt();
+
+    /**
+     * Read a string from cin and return it lowercase
+     * @return input string
+     */
+    std::string readInput();
 };
 
 

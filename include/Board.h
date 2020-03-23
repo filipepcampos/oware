@@ -13,7 +13,7 @@ public:
      * @param name1 - Name of player 1
      * @param name2 - Name of player 2
      */
-    void registerPlayerNames(std::string name1, std::string name2);
+    void registerPlayerNames(std::string &name1, std::string &name2);
 
     /**
      * Receive a move to make a play on the board, sowing seeds from a given position.
@@ -39,7 +39,7 @@ public:
      * Additionally number of seeds captured will be returned by parameter
      * @param move - char from 'a' to 'f'
      * @param id - id of the player making the play
-     * @param &seeds - number of seeds captured will be return through this parameter
+     * @param &seeds - number of seeds captured will be returned through this parameter
      * @return TRUE if play is valid, FALSE otherwise
      */
     bool validatePlay(char move, int id, int &seeds_count);
@@ -67,14 +67,14 @@ private:
     const std::string CLEAR = "\033[2J\033[0;0H";
 
     // Sizing of the board
-    const int TOTAL_WIDTH = 100;
-    const int LEFT_MARGIN = 5;
-    const int SCORE_INDENT = 20;
-    const int SCORE_MARGIN = 5;
-    const int HOUSE_SPACING = 11;
+    const unsigned char TOTAL_WIDTH = 100;
+    const unsigned char LEFT_MARGIN = 5;
+    const unsigned char SCORE_INDENT = 20;
+    const unsigned char SCORE_MARGIN = 5;
+    const unsigned char HOUSE_SPACING = 11;
 
-    std::array<int, 12> board = {4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4};
-    int score[2] = {0, 0};
+    std::array<int, 12> board = {1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0};
+    int score[2] = {0};
     std::string names[2] = {"Player1", "Player2"};
 
     /**
@@ -108,13 +108,24 @@ private:
      */
     void print();
 
-    /** Print house dividers (|  |  |  |  |  |  |) */
+    /**
+     * Print house dividers (|  |  |  |  |  |  |)
+     */
     void printDividers();
-    /** Print letters 'A' through 'F' on top of each house */
+
+    /**
+     * Print letters 'A' through 'F' on top of each house
+     */
     void printLetters();
-    /** Print line with seed numbers (| 4 | 4 | 4 | 4 | 4 | 4 |) */
+
+    /**
+     * Print line with seed numbers (| 4 | 4 | 4 | 4 | 4 | 4 |)
+     */
     void printSeeds(int id);
-    /** Print middle line with scores (0 |----------| 0) */
+
+    /**
+     * Print middle line with scores (0 |----------| 0)
+     */
     void printMiddle();
 };
 

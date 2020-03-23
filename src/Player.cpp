@@ -6,11 +6,22 @@
 
 int Player::id_counter = 0;
 
-Player::Player(std::string str, bool enable_ai) {
+Player::Player(bool enable_ai) {
     id = id_counter;
     id_counter++;
-    name = move(str);
     ai = enable_ai;
+    if(ai)
+        name = "AI";
+    while(name.empty()){
+        std::cout << COLOR[id] << "Player " << id + 1 << "'s" << RESET << " name: ";
+        if(std::cin.peek() != '\n' && std::cin.good())
+            std::cin >> name;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        if(name.length() > NAME_MAX_LEN){
+            std::cout << "Name is too long, please choose a name with less than " << NAME_MAX_LEN + 1 << " characters." << std::endl;
+            name = "";
+        }
+    }
 }
 
 
@@ -25,14 +36,14 @@ void Player::play(Board &board){
 }
 
 void Player::playHuman(Board &board){
-    char move = readInput();
+    char move = inputPrompt();
     if(move == 'x'){
         board.forceEnd();
     }
     else{
         while(!board.validatePlay(move, id)){
             std::cout << "You're not allowed to make that move." << std::endl;
-            move = readInput();
+            move = inputPrompt();
         }
         board.play(move, id);
     }
@@ -55,25 +66,29 @@ void Player::playAI(Board &board){
             }
         }
     }
-    std::cout << "> " << best_move << std::endl;
+    char output_move = toupper(best_move);
+    std::cout << "> " << output_move << std::endl;
+    if(ai_wait)
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     board.play(best_move, id);
 }
 
-char Player::readInput(){
-    std::string input;
+char Player::inputPrompt(){
+    std::string input = readInput();
+    while(std::cin.fail() || (input!="a" && input!="b" && input!="c" && input!="d" && input!="e" && input!="f" && input!="end")){
+        std::cout << "Invalid input, please type a, b, c, d, e, f (lower or uppercase) or end to end the game." << std::endl;
+        input = readInput();
+    }
+    if(input == "end") return 'x';
+    return input.front();
+}
+
+std::string Player::readInput(){
     std::cout << "> ";
+    std::string input;
     std::getline(std::cin, input);
     std::for_each(input.begin(), input.end(), [](char & c){
         c = tolower(c);
     });
-    while(std::cin.fail() || (input!="a" && input!="b" && input!="c" && input!="d" && input!="e" && input!="f" && input!="end")){
-        std::cout << "Invalid input, please type a, b, c, d, e, f (lower or uppercase) or end to end the game." << std::endl;
-        std::cout << "> ";
-        std::getline(std::cin, input);
-        std::for_each(input.begin(), input.end(), [](char & c){
-            c = tolower(c);
-        });
-    }
-    if(input == "end") return 'x';
-    return input.front();
+    return input;
 }

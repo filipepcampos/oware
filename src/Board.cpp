@@ -8,7 +8,7 @@ Board::Board(){
     print();
 }
 
-void Board::registerPlayerNames(std::string name1, std::string name2){
+void Board::registerPlayerNames(std::string &name1, std::string &name2){
     names[0] = name1;
     names[1] = name2;
 }
@@ -21,7 +21,8 @@ void Board::play(char move, int id){
 }
 
 int Board::sow(std::array<int, 12> &b, char move, int id){
-    int initial_pos = id == 1 ? move - 'a' : 11 - (move - 'a');
+    int position_number = move - 'a';
+    int initial_pos = id == 1 ? position_number : 11 - position_number;
     int pos = initial_pos;
     int seeds = b[pos];
     b[pos] = 0;
@@ -56,7 +57,8 @@ int Board::capture(std::array<int, 12> &b, int pos, int id) {
 }
 
 bool Board::validatePlay(char move, int id){
-    int initial_pos = id == 1 ? move - 'a' : 11 - (move - 'a');
+    int position_number = move - 'a';
+    int initial_pos = id == 1 ? position_number : 11 - position_number;
     if(board[initial_pos] == 0) return false;
     std::array<int, 12> simulated_board = board;
 
@@ -83,7 +85,7 @@ bool Board::gameOver(int id){
     for(int i = 0; i < 2; i++){
         if(score[i] >= 25){
             std::cout << "Final Score: " << COLOR[0] << score[0] << RESET << " - " << COLOR[1] << score[1] << RESET << std::endl;
-            std::cout << COLOR[i] << names[id] << RESET << " wins!" << std::endl;
+            std::cout << COLOR[i] << names[i] << RESET << " wins!" << std::endl;
             return true;
         }
     }
@@ -171,17 +173,14 @@ void Board::printLetters(){
 
 /// Prints line with seed values on it
 void Board::printSeeds(int id){
-    int printBoard[2][6];
-    for(int i = 11, j = 0; i >= 6; i--, j++){
-        printBoard[0][j] = board[i];
-    }
-    for(int i = 0; i < 6; i++){
-        printBoard[1][i] = board[i];
-    }
     std::cout << std::setw(SCORE_INDENT) << '|';
     for(int i = 0; i < 6; i++){
-        std::cout << COLOR[id] << std::setw(HOUSE_SPACING / 2 + 1) << printBoard[id][i] << RESET <<
-                  std::setw(HOUSE_SPACING / 2) << '|';
+        int position = i;
+        if(id == 0){
+            position = 11 - i;
+        }
+        std::cout << COLOR[id] << std::setw(HOUSE_SPACING / 2 + 1) << board[position] << RESET
+                  << std::setw(HOUSE_SPACING / 2) << '|';
     }
     std::cout << std::endl;
 }
