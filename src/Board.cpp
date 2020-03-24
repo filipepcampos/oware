@@ -8,10 +8,12 @@ Board::Board(){
     print();
 }
 
+
 void Board::registerPlayerNames(std::string &name1, std::string &name2){
     names[0] = name1;
     names[1] = name2;
 }
+
 
 void Board::play(char move, int id){
     int pos = sow(board, move, id);
@@ -19,6 +21,7 @@ void Board::play(char move, int id){
     std::cout << CLEAR;
     print();
 }
+
 
 int Board::sow(std::array<int, 12> &b, char move, int id){
     int position_number = move - 'a';
@@ -35,6 +38,7 @@ int Board::sow(std::array<int, 12> &b, char move, int id){
     }
     return pos % 12;
 }
+
 
 int Board::capture(std::array<int, 12> &b, int pos, int id) {
     bool grand_slam = true;
@@ -56,6 +60,7 @@ int Board::capture(std::array<int, 12> &b, int pos, int id) {
     return seeds_captured;
 }
 
+
 bool Board::validatePlay(char move, int id){
     int position_number = move - 'a';
     int initial_pos = id == 1 ? position_number : 11 - position_number;
@@ -66,6 +71,7 @@ bool Board::validatePlay(char move, int id){
     int opponent = 1 - id;
     return hasSeeds(opponent, simulated_board);
 }
+
 
 bool Board::validatePlay(char move, int id, int &seeds_count){
     int position_number = move - 'a';
@@ -110,6 +116,7 @@ bool Board::gameOver(int id){
     return gameOver(id);
 }
 
+
 void Board::forceEnd(){
     std::cout << std::endl << "The game has been forced to end" << std::endl;
     for(int i = 0; i < 6; i++){
@@ -119,6 +126,7 @@ void Board::forceEnd(){
         score[0] += board[i];
     }
 }
+
 
 bool Board::hasSeeds(int id, std::array<int, 12> arr){
     int lower_bound = 0 + (1-id)*6, upper_bound = 5 + (1-id)*6;
@@ -130,6 +138,7 @@ bool Board::hasSeeds(int id, std::array<int, 12> arr){
     }
     return false;
 }
+
 
 void Board::print(){
     int bar_width = TOTAL_WIDTH - LEFT_MARGIN;
@@ -153,7 +162,7 @@ void Board::print(){
     std::cout << std::endl;
 }
 
-/// Print house dividers
+
 void Board::printDividers(){
     std::cout << std::setw(SCORE_INDENT) << '|';
     for(int i = 0; i < 6; i++){
@@ -162,7 +171,7 @@ void Board::printDividers(){
     std::cout << std::endl;
 }
 
-/// Print letters identifying the letter of each house
+
 void Board::printLetters(){
     std::cout << std::setw(SCORE_INDENT + HOUSE_SPACING / 2 + 1);
     for(char c = 'A'; c <= 'F'; c++){
@@ -171,7 +180,7 @@ void Board::printLetters(){
     std::cout << std::setw(0) << std::endl;
 }
 
-/// Prints line with seed values on it
+
 void Board::printSeeds(int id){
     std::cout << std::setw(SCORE_INDENT) << '|';
     for(int i = 0; i < 6; i++){
@@ -185,7 +194,7 @@ void Board::printSeeds(int id){
     std::cout << std::endl;
 }
 
-/// Prints the middle line of the board and scores on either end.
+
 void Board::printMiddle(){
     std::cout << COLOR[0] << std::setw(SCORE_INDENT - SCORE_MARGIN) << score[0] << RESET
         << std::setw(SCORE_MARGIN) << '|';

@@ -20,7 +20,7 @@ public:
      * Indicated move must be previously validated by validatePlay.
      * @param move - char from 'a' to 'f' indicating the chosen pit
      * @param id - id of the player making the play
-     * @returns (none)
+     * @return (none)
      */
     void play(char move, int id);
 
@@ -73,7 +73,7 @@ private:
     const unsigned char SCORE_MARGIN = 5;
     const unsigned char HOUSE_SPACING = 11;
 
-    std::array<int, 12> board = {1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0};
+    std::array<int, 12> board = {4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4};
     int score[2] = {0};
     std::string names[2] = {"Player1", "Player2"};
 
@@ -105,26 +105,31 @@ private:
 
     /**
      * Print the board on screen
+     * @return (none)
      */
     void print();
 
     /**
      * Print house dividers (|  |  |  |  |  |  |)
+     * @return (none)
      */
     void printDividers();
 
     /**
      * Print letters 'A' through 'F' on top of each house
+     * @return (none)
      */
     void printLetters();
 
     /**
      * Print line with seed numbers (| 4 | 4 | 4 | 4 | 4 | 4 |)
+     * @return (none)
      */
     void printSeeds(int id);
 
     /**
      * Print middle line with scores (0 |----------| 0)
+     * @return (none)
      */
     void printMiddle();
 };

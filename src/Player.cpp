@@ -14,13 +14,22 @@ Player::Player(bool enable_ai) {
         name = "AI";
     while(name.empty()){
         std::cout << COLOR[id] << "Player " << id + 1 << "'s" << RESET << " name: ";
-        if(std::cin.peek() != '\n' && std::cin.good())
-            std::cin >> name;
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        getline(std::cin, name, '\n');
+        bool valid = true;
+        if(name.back() == ' '){
+            std::cout << "Please remove trailing whitespace." << std::endl;
+            valid = false;
+        }
+        if(name.front() == ' '){
+            std::cout << "Please remove leading whitespace." << std::endl;
+            valid = false;
+        }
         if(name.length() > NAME_MAX_LEN){
             std::cout << "Name is too long, please choose a name with less than " << NAME_MAX_LEN + 1 << " characters." << std::endl;
-            name = "";
+            valid = false;
         }
+        if(!valid)
+            name.clear();
     }
 }
 

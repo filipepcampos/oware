@@ -15,31 +15,14 @@
   <component name="ChangeListManager">
     <list default="true" id="55905f02-8bd8-41e8-9216-72eaea16d178" name="Default Changelist" comment="/">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/README.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/oware.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/oware.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Board.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Board.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Player.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Player.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/oware.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/oware.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/oware.exe.stackdump" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/oware.exe.stackdump" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/Board.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Board.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/Player.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Player.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +107,13 @@
       <workItem from="1584780614585" duration="159000" />
       <workItem from="1584780916518" duration="361000" />
       <workItem from="1584871299643" duration="269000" />
-      <workItem from="1584951833156" duration="1679000" />
+      <workItem from="1584951833156" duration="2946000" />
+      <workItem from="1584954975316" duration="1451000" />
+      <workItem from="1584957511991" duration="6458000" />
+      <workItem from="1585002261543" duration="88000" />
+      <workItem from="1585054162227" duration="249000" />
+      <workItem from="1585054520525" duration="1118000" />
+      <workItem from="1585081658602" duration="597000" />
     </task>
     <servers />
   </component>
@@ -148,22 +137,22 @@
       <screen x="0" y="0" width="1463" height="783" />
     </state>
     <state x="512" y="146" key="FileChooserDialogImpl/0.0.1463.783@0.0.1463.783" timestamp="1584043487562" />
-    <state width="745" height="717" key="GridCell.Tab.0.bottom" timestamp="1584953390506">
+    <state width="934" height="356" key="GridCell.Tab.0.bottom" timestamp="1585055757733">
       <screen x="0" y="0" width="1463" height="783" />
     </state>
-    <state width="745" height="717" key="GridCell.Tab.0.bottom/0.0.1463.783@0.0.1463.783" timestamp="1584953390506" />
-    <state width="745" height="717" key="GridCell.Tab.0.center" timestamp="1584953390506">
+    <state width="934" height="356" key="GridCell.Tab.0.bottom/0.0.1463.783@0.0.1463.783" timestamp="1585055757733" />
+    <state width="934" height="356" key="GridCell.Tab.0.center" timestamp="1585055757732">
       <screen x="0" y="0" width="1463" height="783" />
     </state>
-    <state width="745" height="717" key="GridCell.Tab.0.center/0.0.1463.783@0.0.1463.783" timestamp="1584953390506" />
-    <state width="745" height="717" key="GridCell.Tab.0.left" timestamp="1584953390506">
+    <state width="934" height="356" key="GridCell.Tab.0.center/0.0.1463.783@0.0.1463.783" timestamp="1585055757732" />
+    <state width="934" height="356" key="GridCell.Tab.0.left" timestamp="1585055757732">
       <screen x="0" y="0" width="1463" height="783" />
     </state>
-    <state width="745" height="717" key="GridCell.Tab.0.left/0.0.1463.783@0.0.1463.783" timestamp="1584953390506" />
-    <state width="745" height="717" key="GridCell.Tab.0.right" timestamp="1584953390506">
+    <state width="934" height="356" key="GridCell.Tab.0.left/0.0.1463.783@0.0.1463.783" timestamp="1585055757732" />
+    <state width="934" height="356" key="GridCell.Tab.0.right" timestamp="1585055757733">
       <screen x="0" y="0" width="1463" height="783" />
     </state>
-    <state width="745" height="717" key="GridCell.Tab.0.right/0.0.1463.783@0.0.1463.783" timestamp="1584953390506" />
+    <state width="934" height="356" key="GridCell.Tab.0.right/0.0.1463.783@0.0.1463.783" timestamp="1585055757733" />
     <state width="709" height="267" key="GridCell.Tab.1.bottom" timestamp="1584630678374">
       <screen x="0" y="0" width="1463" height="783" />
     </state>
@@ -184,10 +173,10 @@
       <screen x="0" y="0" width="1463" height="783" />
     </state>
     <state x="241" y="34" key="SettingsEditor/0.0.1463.783@0.0.1463.783" timestamp="1584953250732" />
-    <state x="406" y="215" key="com.intellij.ide.util.TipDialog" timestamp="1584951902846">
+    <state x="406" y="215" key="com.intellij.ide.util.TipDialog" timestamp="1585081671613">
       <screen x="0" y="0" width="1463" height="783" />
     </state>
-    <state x="406" y="215" key="com.intellij.ide.util.TipDialog/0.0.1463.783@0.0.1463.783" timestamp="1584951902846" />
+    <state x="406" y="215" key="com.intellij.ide.util.TipDialog/0.0.1463.783@0.0.1463.783" timestamp="1585081671613" />
     <state x="754" y="180" key="run.anything.popup" timestamp="1584045656974">
       <screen x="0" y="0" width="1463" height="783" />
     </state>
@@ -196,16 +185,5 @@
       <screen x="0" y="0" width="1463" height="783" />
     </state>
     <state x="394" y="104" width="672" height="678" key="search.everywhere.popup/0.0.1463.783@0.0.1463.783" timestamp="1584553075704" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/main.cpp</url>
-          <line>18</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
