@@ -142,26 +142,19 @@ bool Board::hasSeeds(int id, std::array<int, 12> arr){
 
 void Board::print(){
     int bar_width = TOTAL_WIDTH - LEFT_MARGIN;
-
     std::cout << std::endl;
     printLetters();
     std::cout << std::setw(TOTAL_WIDTH) << std::string(bar_width, '-') << std::endl;
-
     printDividers();
     printSeeds(0);
     printDividers();
-
     printMiddle();
-
     printDividers();
     printSeeds(1);
     printDividers();
-
     std::cout << std::setw(TOTAL_WIDTH) << std::string(bar_width, '-') << std::endl;
-    printLetters();
-    std::cout << std::endl;
+    printLetters();  std::cout << std::endl;
 }
-
 
 void Board::printDividers(){
     std::cout << std::setw(SCORE_INDENT) << '|';
@@ -171,7 +164,6 @@ void Board::printDividers(){
     std::cout << std::endl;
 }
 
-
 void Board::printLetters(){
     std::cout << std::setw(SCORE_INDENT + HOUSE_SPACING / 2 + 1);
     for(char c = 'A'; c <= 'F'; c++){
@@ -180,7 +172,6 @@ void Board::printLetters(){
     std::cout << std::setw(0) << std::endl;
 }
 
-
 void Board::printSeeds(int id){
     std::cout << std::setw(SCORE_INDENT) << '|';
     for(int i = 0; i < 6; i++){
@@ -188,12 +179,10 @@ void Board::printSeeds(int id){
         if(id == 0){
             position = 11 - i;
         }
-        std::cout << COLOR[id] << std::setw(HOUSE_SPACING / 2 + 1) << board[position] << RESET
-                  << std::setw(HOUSE_SPACING / 2) << '|';
+        std::cout << COLOR[id] << std::setw(HOUSE_SPACING / 2 + 1) << board[position] << RESET << std::setw(HOUSE_SPACING / 2) << '|';
     }
     std::cout << std::endl;
 }
-
 
 void Board::printMiddle(){
     std::cout << COLOR[0] << std::setw(SCORE_INDENT - SCORE_MARGIN) << score[0] << RESET
