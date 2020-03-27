@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/cygdrive/c/FEUP/prog/oware/src/Board.cpp" "/cygdrive/c/FEUP/prog/oware/cmake-build-debug/CMakeFiles/oware.dir/src/Board.cpp.o"
   "/cygdrive/c/FEUP/prog/oware/src/Player.cpp" "/cygdrive/c/FEUP/prog/oware/cmake-build-debug/CMakeFiles/oware.dir/src/Player.cpp.o"
+  "/cygdrive/c/FEUP/prog/oware/src/Tcp.cpp" "/cygdrive/c/FEUP/prog/oware/cmake-build-debug/CMakeFiles/oware.dir/src/Tcp.cpp.o"
   "/cygdrive/c/FEUP/prog/oware/src/main.cpp" "/cygdrive/c/FEUP/prog/oware/cmake-build-debug/CMakeFiles/oware.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

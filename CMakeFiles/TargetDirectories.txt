@@ -1,0 +1,3 @@
+/mnt/c/feup/PROG/oware/CMakeFiles/rebuild_cache.dir
+/mnt/c/feup/PROG/oware/CMakeFiles/oware.dir
+/mnt/c/feup/PROG/oware/CMakeFiles/edit_cache.dir

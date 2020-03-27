@@ -177,6 +177,33 @@ src/Player.cpp.s:
 	$(MAKE) -f CMakeFiles/oware.dir/build.make CMakeFiles/oware.dir/src/Player.cpp.s
 .PHONY : src/Player.cpp.s
 
+src/Tcp.o: src/Tcp.cpp.o
+
+.PHONY : src/Tcp.o
+
+# target to build an object file
+src/Tcp.cpp.o:
+	$(MAKE) -f CMakeFiles/oware.dir/build.make CMakeFiles/oware.dir/src/Tcp.cpp.o
+.PHONY : src/Tcp.cpp.o
+
+src/Tcp.i: src/Tcp.cpp.i
+
+.PHONY : src/Tcp.i
+
+# target to preprocess a source file
+src/Tcp.cpp.i:
+	$(MAKE) -f CMakeFiles/oware.dir/build.make CMakeFiles/oware.dir/src/Tcp.cpp.i
+.PHONY : src/Tcp.cpp.i
+
+src/Tcp.s: src/Tcp.cpp.s
+
+.PHONY : src/Tcp.s
+
+# target to generate assembly for a file
+src/Tcp.cpp.s:
+	$(MAKE) -f CMakeFiles/oware.dir/build.make CMakeFiles/oware.dir/src/Tcp.cpp.s
+.PHONY : src/Tcp.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -219,6 +246,9 @@ help:
 	@echo "... src/Player.o"
 	@echo "... src/Player.i"
 	@echo "... src/Player.s"
+	@echo "... src/Tcp.o"
+	@echo "... src/Tcp.i"
+	@echo "... src/Tcp.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

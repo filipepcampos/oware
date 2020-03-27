@@ -86,10 +86,16 @@
 		<Unit filename="/cygdrive/c/FEUP/prog/oware/include/Player.h">
 			<Option target="oware"/>
 		</Unit>
+		<Unit filename="/cygdrive/c/FEUP/prog/oware/include/Tcp.h">
+			<Option target="oware"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/FEUP/prog/oware/src/Board.cpp">
 			<Option target="oware"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/FEUP/prog/oware/src/Player.cpp">
+			<Option target="oware"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/FEUP/prog/oware/src/Tcp.cpp">
 			<Option target="oware"/>
 		</Unit>
 		<Unit filename="/cygdrive/c/FEUP/prog/oware/src/main.cpp">

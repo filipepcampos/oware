@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/oware.dir/src/Board.cpp.o"
   "CMakeFiles/oware.dir/src/Player.cpp.o"
+  "CMakeFiles/oware.dir/src/Tcp.cpp.o"
   "CMakeFiles/oware.dir/src/main.cpp.o"
   "liboware.dll.a"
   "oware.exe"

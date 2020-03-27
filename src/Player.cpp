@@ -10,6 +10,15 @@ Player::Player(bool enable_ai) {
     id = id_counter;
     id_counter++;
     ai = enable_ai;
+    getPlayerName();
+}
+
+Player::Player(int fixed_id){
+    id = fixed_id;
+    getPlayerName();
+}
+
+void Player::getPlayerName(){
     if(ai)
         name = "AI";
     while(name.empty()){
@@ -34,17 +43,19 @@ Player::Player(bool enable_ai) {
 }
 
 
-void Player::play(Board &board){
+char Player::play(Board &board){
     std::cout << COLOR[id] << name << "'s turn." << RESET << std::endl;
+    char move;
     if(ai){
-        playAI(board);
+        move = playAI(board);
     }
     else{
-        playHuman(board);
+        move = playHuman(board);
     }
+    return move;
 }
 
-void Player::playHuman(Board &board){
+char Player::playHuman(Board &board){
     char move = inputPrompt();
     if(move == 'x'){
         board.forceEnd();
@@ -56,9 +67,10 @@ void Player::playHuman(Board &board){
         }
         board.play(move, id);
     }
+    return move;
 }
 
-void Player::playAI(Board &board){
+char Player::playAI(Board &board){
     static std::random_device dev;
     static std::mt19937 engine(dev());
     char best_move = 'a';
@@ -80,6 +92,7 @@ void Player::playAI(Board &board){
     if(ai_wait)
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     board.play(best_move, id);
+    return best_move;
 }
 
 char Player::inputPrompt(){
