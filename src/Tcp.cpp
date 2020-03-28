@@ -35,7 +35,7 @@ namespace Tcp{
             host();
             return;
         }
-
+        // Try to connect to given ip address. If connection is not possible, host the game
         inet_pton(AF_INET, ip_address.c_str(), &server_address.sin_addr);
         if(connect(sock, (struct sockaddr *)&server_address, sizeof(server_address)) < 0){
             std::cout << "No server found at given ip address." << std::endl;
@@ -114,6 +114,7 @@ namespace Tcp{
                 game.board.play(move, opponent_id);
             }
         } while(!game.board.gameOver(turn));
+        close(game.sock);
     }
 
     int initializeServer(){
@@ -122,36 +123,16 @@ namespace Tcp{
         int opt = 1;
         int address_len = sizeof(address);
 
-        if ((server_socket = socket(AF_INET, SOCK_STREAM, 0)) == 0)
-        {
-            std::cerr << "[!] socket failed";
-            exit(1);
-        }
-        if (setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)))
-        {
-            std::cerr << "[!] set sock opt\n";
-            exit(1);
-        }
+        server_socket = socket(AF_INET, SOCK_STREAM, 0);
+        setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt));
         address.sin_family = AF_INET;
         address.sin_addr.s_addr = INADDR_ANY;
         address.sin_port = htons(PORT);
 
-        if (bind(server_socket, (struct sockaddr *)&address, sizeof(address))<0)
-        {
-            std::cerr << "[!] bind failed\n";
-            exit(1);
-        }
-        if (listen(server_socket, 3) < 0)
-        {
-            std::cerr << "[!] listen failed";
-            exit(1);
-        }
-        std::cout << "Server listening." << std::endl;
-        if ((new_socket = accept(server_socket, (struct sockaddr *)&address, (socklen_t*)&address_len)) < 0)
-        {
-            std::cerr << "[!] accept failed";
-            exit(1);
-        }
+        bind(server_socket, (struct sockaddr *)&address, sizeof(address));
+        listen(server_socket, 3);
+        std::cout << "Server initialized." << std::endl;
+        new_socket = accept(server_socket, (struct sockaddr *)&address, (socklen_t*)&address_len);
         std::cout << "Connection established." << std::endl;
         return new_socket;
     }

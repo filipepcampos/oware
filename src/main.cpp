@@ -63,4 +63,5 @@ int chooseGameMode(bool &tcp, bool &ai){
             game_mode.clear();
         }
     }
+    return 0;
 }
