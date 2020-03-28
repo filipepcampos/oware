@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/FEUP/prog/oware/include/Board.h
+C:/feup/PROG/oware/include/Board.h
 array
 -
 string
@@ -14,65 +14,31 @@ string
 string
 -
 
-/mnt/c/FEUP/prog/oware/include/Player.h
+C:/feup/PROG/oware/include/Player.h
 string
 -
 Board.h
-/mnt/c/FEUP/prog/oware/include/Board.h
+C:/feup/PROG/oware/include/Board.h
 
-/mnt/c/FEUP/prog/oware/include/Tcp.h
+C:/feup/PROG/oware/include/Tcp.h
 string
 -
 Board.h
-/mnt/c/FEUP/prog/oware/include/Board.h
+C:/feup/PROG/oware/include/Board.h
 Player.h
-/mnt/c/FEUP/prog/oware/include/Player.h
+C:/feup/PROG/oware/include/Player.h
 
-/mnt/c/FEUP/prog/oware/src/Board.cpp
+C:/feup/PROG/oware/src/Tcp.cpp
 iostream
--
-iomanip
--
-../include/Board.h
-/mnt/c/FEUP/prog/oware/include/Board.h
-
-/mnt/c/FEUP/prog/oware/src/Player.cpp
-iostream
--
-algorithm
--
-random
--
-../include/Player.h
-/mnt/c/FEUP/prog/oware/include/Player.h
-../include/Board.h
-/mnt/c/FEUP/prog/oware/include/Board.h
-
-/mnt/c/FEUP/prog/oware/src/Tcp.cpp
-iostream
--
-unistd.h
--
-sys/socket.h
 -
 cstdlib
 -
-netinet/in.h
--
 cstring
 -
-arpa/inet.h
+winsock2.h
+-
+Ws2tcpip.h
 -
 ../include/Tcp.h
-/mnt/c/FEUP/prog/oware/include/Tcp.h
-
-/mnt/c/FEUP/prog/oware/src/main.cpp
-iostream
--
-../include/Board.h
-/mnt/c/FEUP/prog/oware/include/Board.h
-../include/Player.h
-/mnt/c/FEUP/prog/oware/include/Player.h
-../include/Tcp.h
-/mnt/c/FEUP/prog/oware/include/Tcp.h
+C:/feup/PROG/oware/include/Tcp.h
 

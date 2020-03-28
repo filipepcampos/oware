@@ -1,1 +1,0 @@
-/usr/bin/c++  -O3 -DNDEBUG   CMakeFiles/oware.dir/src/main.cpp.o CMakeFiles/oware.dir/src/Board.cpp.o CMakeFiles/oware.dir/src/Player.cpp.o CMakeFiles/oware.dir/src/Tcp.cpp.o  -o oware 

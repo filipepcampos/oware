@@ -1,5 +1,3 @@
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "MemberFunctionCanBeStatic"
 #include <iostream>
 #include <iomanip>
 #include "../include/Board.h"
@@ -197,4 +195,3 @@ void Board::printMiddle(){
     std::cout << std::string(HOUSE_SPACING * 6 - 1, '-') << '|';
     std::cout << COLOR[1] << std::setw(SCORE_MARGIN) << score[1] << RESET << std::endl;
 }
-#pragma clang diagnostic pop

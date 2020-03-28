@@ -1,6 +1,7 @@
 #include <string>
 #include "Board.h"
 #include "Player.h"
+#pragma comment(lib,"ws2_32.lib")
 
 namespace Tcp{
     const int PORT = 8080;
