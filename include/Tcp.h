@@ -30,6 +30,18 @@ namespace Tcp{
      */
     int initializeServer();
 
+    /**
+     * Read name buffer from socket and convert it to std::string
+     * @param (int) sock - Socket
+     * @return (std::string) Opponent name
+     */
+    std::string readOpponentName(int sock);
+
+    /**
+     * Contact Google DNS Server to get your ip
+     * This allows host to know what ip to share with the second player
+     * @return (none)
+     */
     void printHostIP();
 
     /**
@@ -41,7 +53,7 @@ namespace Tcp{
 
     /**
      * Manage game's rounds by sending and receiving moves, updating the game board accordingly
-     * @param GameInformation &game - Information needed to run the game (ID, player, opponent_name, board, socket)
+     * @param (GameInformation) &game - Information needed to run the game (ID, player, opponent_name, board, socket)
      * @return (none)
      */
     void play(GameInformation &game);

@@ -8,20 +8,21 @@ class Player {
 public:
     /**
      * Player constructor
-     * @param enable_ai - Activate or not AI
+     * @param (bool) enable_ai - Activate or not AI
      */
     Player(bool enable_ai = false);
 
     /**
      * Player constructor for TCP games where host uses id 0 and client id 1
-     * @param id - Id to be used
+     * @param (int) id - Id to be used
      */
     Player(int fixed_id);
 
     /**
      * Read input and submit it to the board, making a play.
      * If the player is AI, the move will be chosen according to the greatest immediate reward
-     * @param &board - Game board
+     * @param (Board) &board - Game board
+     * @return (char) move played
      */
     char play(Board &board);
 
@@ -40,30 +41,33 @@ private:
 
     /**
      * Prompt player for input and make play according to the given input
-     * @param board - Game board
+     * @param (Board) &board - Game board
+     * @return (char) move played
      */
     char playHuman(Board &board);
 
     /**
      * Choose move that will give maximum number of seeds captured next round
-     * @param board - Game board
+     * @param (Board) &board - Game board
+     * @return (char) move played
      */
     char playAI(Board &board);
 
     /**
      * Prompt the user for input
-     * @return char representing move to make (Will return 'x' if input == "end"), this behaviour is treated in play()
+     * @return (char) Char representing move to make (Will return 'x' if input == "end"), this behaviour is treated in play()
      */
     char inputPrompt();
 
     /**
      * Read a string from cin and return it lowercase
-     * @return input string
+     * @return (std::string) input string
      */
     std::string readInput();
 
     /**
      * Ask player's name
+     * @return (none)
      */
     void getPlayerName();
 };

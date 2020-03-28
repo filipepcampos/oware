@@ -24,23 +24,26 @@ namespace Tcp{
         sock = socket(AF_INET, SOCK_STREAM, 0);
         server_address.sin_family = AF_INET;
         server_address.sin_port = htons(PORT);
-        std::cout << "If you wish to join a game, type the id adress. To host please press enter" << std::endl;
+        std::cout << "\nIf you wish to join a game, type the id address. To host please press enter" << std::endl;
         std::string ip_address;
         std::cout << "> "; std::getline(std::cin, ip_address);
+        if(std::cin.eof()){
+            std::cout << "An IO error has occurred." << std::endl;
+            return;
+        }
         if(ip_address.empty()){
             host();
             return;
         }
-        else{
-            inet_pton(AF_INET, ip_address.c_str(), &server_address.sin_addr);
-            if(connect(sock, (struct sockaddr *)&server_address, sizeof(server_address)) < 0){
-                std::cout << "No server found at given ip address." << std::endl;
-                host();
-                return;
-            }
-            client(sock);
+
+        inet_pton(AF_INET, ip_address.c_str(), &server_address.sin_addr);
+        if(connect(sock, (struct sockaddr *)&server_address, sizeof(server_address)) < 0){
+            std::cout << "No server found at given ip address." << std::endl;
+            host();
+            return;
         }
-    }
+        client(sock);
+ }
 
     void client(int sock){
         const int ID = 1;
@@ -48,14 +51,7 @@ namespace Tcp{
 
         const char* name_str = player.name.c_str();
         send(sock , name_str, strlen(name_str) , 0);
-
-        char buffer[1024] = {0};
-        read(sock, buffer, 1024);
-        if(buffer[0] == 0){
-            std::cout << "Couldn't get opponent information" << std::endl;
-            exit(1);
-        }
-        std::string opponent_name = buffer;
+        std::string opponent_name = readOpponentName(sock);
 
         Board board;
         board.registerPlayerNames(opponent_name, player.name);
@@ -65,19 +61,11 @@ namespace Tcp{
 
     void host(){
         const int ID = 0;
-
         printHostIP();
         int client_socket = initializeServer();
         Player player(ID);
 
-        char buffer[1024] = {0};
-        read(client_socket, buffer, 1024);
-        if(buffer[0] == 0){
-            std::cout << "Couldn't get opponent information" << std::endl;
-            exit(1);
-        }
-        std::string opponent_name = buffer;
-
+        std::string opponent_name = readOpponentName(client_socket);
         const char* name_str = player.name.c_str();
         send(client_socket, name_str, strlen(name_str), 0);
 
@@ -85,6 +73,17 @@ namespace Tcp{
         board.registerPlayerNames(player.name, opponent_name);
         GameInformation info = {ID, player, opponent_name, board, client_socket};
         play(info);
+    }
+
+    std::string readOpponentName(int sock){
+        char buffer[1024] = {0};
+        read(sock, buffer, 1024);
+        if(buffer[0] == 0){
+            std::cout << "Couldn't get opponent information" << std::endl;
+            exit(1);
+        }
+        std::string result = buffer;
+        return result;
     }
 
     void play(GameInformation &game){
@@ -128,7 +127,6 @@ namespace Tcp{
             std::cerr << "[!] socket failed";
             exit(1);
         }
-
         if (setsockopt(server_socket, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)))
         {
             std::cerr << "[!] set sock opt\n";
@@ -151,7 +149,7 @@ namespace Tcp{
         std::cout << "Server listening." << std::endl;
         if ((new_socket = accept(server_socket, (struct sockaddr *)&address, (socklen_t*)&address_len)) < 0)
         {
-            std::cerr << "[!] accept";
+            std::cerr << "[!] accept failed";
             exit(1);
         }
         std::cout << "Connection established." << std::endl;
