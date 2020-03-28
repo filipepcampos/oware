@@ -41,6 +41,7 @@ int chooseGameMode(bool &tcp, bool &ai){
                     COLOR << " 1 " << RESET << "- Single player\n" <<
                     COLOR << " 2 " << RESET << "- Local two player\n" <<
                     COLOR << " 3 " << RESET << "- Network two player\n";
+        std::cout << " > ";
         std::getline(std::cin, game_mode);
         if(std::cin.eof()){
             std::cout << "An IO error has occurred." << std::endl;

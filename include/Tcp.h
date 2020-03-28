@@ -30,6 +30,8 @@ namespace Tcp{
      */
     int initializeServer();
 
+    void printHostIP();
+
     /**
      * Send name to host and receive host's name
      * @param (int) sock - socket connected to server

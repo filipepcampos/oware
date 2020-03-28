@@ -24,15 +24,22 @@ namespace Tcp{
         sock = socket(AF_INET, SOCK_STREAM, 0);
         server_address.sin_family = AF_INET;
         server_address.sin_port = htons(PORT);
+        std::cout << "If you wish to join a game, type the id adress. To host please press enter" << std::endl;
         std::string ip_address;
-        std::cout << "ip address: "; std::getline(std::cin, ip_address);
-        inet_pton(AF_INET, ip_address.c_str(), &server_address.sin_addr);
-        if(connect(sock, (struct sockaddr *)&server_address, sizeof(server_address)) < 0){
-            std::cout << "No server found at given ip address." << std::endl;
+        std::cout << "> "; std::getline(std::cin, ip_address);
+        if(ip_address.empty()){
             host();
             return;
         }
-        client(sock);
+        else{
+            inet_pton(AF_INET, ip_address.c_str(), &server_address.sin_addr);
+            if(connect(sock, (struct sockaddr *)&server_address, sizeof(server_address)) < 0){
+                std::cout << "No server found at given ip address." << std::endl;
+                host();
+                return;
+            }
+            client(sock);
+        }
     }
 
     void client(int sock){
@@ -58,6 +65,8 @@ namespace Tcp{
 
     void host(){
         const int ID = 0;
+
+        printHostIP();
         int client_socket = initializeServer();
         Player player(ID);
 
@@ -148,4 +157,27 @@ namespace Tcp{
         std::cout << "Connection established." << std::endl;
         return new_socket;
     }
+
+    void printHostIP(){
+        const char* google_dns_server = "8.8.8.8";
+        int dns_port = 53;
+        struct sockaddr_in serv;
+        int sock = socket(AF_INET, SOCK_DGRAM, 0);
+        memset(&serv, 0, sizeof(serv));
+        serv.sin_family = AF_INET;
+        serv.sin_addr.s_addr = inet_addr(google_dns_server);
+        serv.sin_port = htons(dns_port);
+        connect(sock, (const struct sockaddr*)&serv, sizeof(serv));
+        struct sockaddr_in name;
+        socklen_t namelen = sizeof(name);
+        getsockname(sock, (struct sockaddr*)&name, &namelen);
+        char buffer[80];
+        const char* p = inet_ntop(AF_INET, &name.sin_addr, buffer, 80);
+        if(p != nullptr)
+        {
+            std::cout << "Local IP address is: " << buffer << std::endl;
+        }
+        close(sock);
+    }
+
 }
