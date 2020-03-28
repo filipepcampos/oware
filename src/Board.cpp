@@ -5,6 +5,7 @@
 #include "../include/Board.h"
 
 Board::Board(){
+    std::cout << CLEAR;
     print();
 }
 

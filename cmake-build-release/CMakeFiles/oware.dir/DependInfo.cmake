@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/cygdrive/c/FEUP/prog/oware/src/Board.cpp" "/cygdrive/c/FEUP/prog/oware/cmake-build-release/CMakeFiles/oware.dir/src/Board.cpp.o"
-  "/cygdrive/c/FEUP/prog/oware/src/Player.cpp" "/cygdrive/c/FEUP/prog/oware/cmake-build-release/CMakeFiles/oware.dir/src/Player.cpp.o"
-  "/cygdrive/c/FEUP/prog/oware/src/Tcp.cpp" "/cygdrive/c/FEUP/prog/oware/cmake-build-release/CMakeFiles/oware.dir/src/Tcp.cpp.o"
-  "/cygdrive/c/FEUP/prog/oware/src/main.cpp" "/cygdrive/c/FEUP/prog/oware/cmake-build-release/CMakeFiles/oware.dir/src/main.cpp.o"
+  "/mnt/c/FEUP/prog/oware/src/Board.cpp" "/mnt/c/FEUP/prog/oware/cmake-build-release/CMakeFiles/oware.dir/src/Board.cpp.o"
+  "/mnt/c/FEUP/prog/oware/src/Player.cpp" "/mnt/c/FEUP/prog/oware/cmake-build-release/CMakeFiles/oware.dir/src/Player.cpp.o"
+  "/mnt/c/FEUP/prog/oware/src/Tcp.cpp" "/mnt/c/FEUP/prog/oware/cmake-build-release/CMakeFiles/oware.dir/src/Tcp.cpp.o"
+  "/mnt/c/FEUP/prog/oware/src/main.cpp" "/mnt/c/FEUP/prog/oware/cmake-build-release/CMakeFiles/oware.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
