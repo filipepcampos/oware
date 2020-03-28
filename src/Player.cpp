@@ -23,14 +23,15 @@ void Player::getPlayerName(){
         name = "AI";
     while(name.empty()){
         std::cout << COLOR[id] << "Player " << id + 1 << "'s" << RESET << " name: ";
+        std::cin >> std::ws;
         getline(std::cin, name, '\n');
         bool valid = true;
+        if(std::cin.eof()){
+            std::cout << "An IO error has occurred." << std::endl;
+            exit(1);
+        }
         if(name.back() == ' '){
             std::cout << "Please remove trailing whitespace." << std::endl;
-            valid = false;
-        }
-        if(name.front() == ' '){
-            std::cout << "Please remove leading whitespace." << std::endl;
             valid = false;
         }
         if(name.length() > NAME_MAX_LEN){
@@ -97,7 +98,7 @@ char Player::playAI(Board &board){
 
 char Player::inputPrompt(){
     std::string input = readInput();
-    while(std::cin.fail() || (input!="a" && input!="b" && input!="c" && input!="d" && input!="e" && input!="f" && input!="end")){
+    while(input!="a" && input!="b" && input!="c" && input!="d" && input!="e" && input!="f" && input!="end"){
         std::cout << "Invalid input, please type a, b, c, d, e, f (lower or uppercase) or end to end the game." << std::endl;
         input = readInput();
     }
@@ -109,6 +110,10 @@ std::string Player::readInput(){
     std::cout << "> ";
     std::string input;
     std::getline(std::cin, input);
+    if(std::cin.eof()){
+        std::cout << "An IO error has occurred." << std::endl;
+        exit(1);
+    }
     std::for_each(input.begin(), input.end(), [](char & c){
         c = tolower(c);
     });

@@ -88,6 +88,9 @@ bool Board::validatePlay(char move, int id, int &seeds_count){
 
 
 bool Board::gameOver(int id){
+    if(terminate_game){
+        return true;
+    }
     for(int i = 0; i < 2; i++){
         if(score[i] >= 25){
             std::cout << "Final Score: " << COLOR[0] << score[0] << RESET << " - " << COLOR[1] << score[1] << RESET << std::endl;
@@ -116,6 +119,9 @@ bool Board::gameOver(int id){
     return gameOver(id);
 }
 
+void Board::terminate(){
+    terminate_game = true;
+}
 
 void Board::forceEnd(){
     std::cout << std::endl << "The game has been forced to end" << std::endl;

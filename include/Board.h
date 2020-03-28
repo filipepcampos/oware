@@ -58,7 +58,7 @@ public:
      */
     void forceEnd();
 
-
+    void terminate();
 
 private:
     // ANSI Escape codes to manipulate the output terminal
@@ -76,6 +76,7 @@ private:
     std::array<int, 12> board = {4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4};
     int score[2] = {0};
     std::string names[2] = {"Player1", "Player2"};
+    bool terminate_game = false;
 
     /**
      * Verify if a given player has any seeds. Can be used to check main board or simulated board
