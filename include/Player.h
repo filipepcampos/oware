@@ -30,10 +30,6 @@ public:
     int id;
 
 private:
-    // ANSI Escape codes to manipulate the output terminal
-    const std::string COLOR[2] = {"\033[36m", "\033[31m"};
-    const std::string RESET = "\033[0m";
-
     const int NAME_MAX_LEN = 20;
     static int id_counter;
     bool ai = false;

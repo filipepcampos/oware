@@ -4,8 +4,6 @@
 
 namespace Tcp{
     const int PORT = 8080;
-    const std::string COLOR[2] = {"\033[36m", "\033[31m"};
-    const std::string RESET = "\033[0m";
 
     struct GameInformation;
 

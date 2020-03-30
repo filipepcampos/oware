@@ -3,6 +3,7 @@
 #include <iostream>
 #include <iomanip>
 #include "../include/Board.h"
+#include "../include/Text.h"
 
 Board::Board(){
     std::cout << CLEAR;
@@ -94,14 +95,14 @@ bool Board::gameOver(int id){
     }
     for(int i = 0; i < 2; i++){
         if(score[i] >= 25){
-            std::cout << "Final Score: " << COLOR[0] << score[0] << RESET << " - " << COLOR[1] << score[1] << RESET << std::endl;
-            std::cout << COLOR[i] << names[i] << RESET << " wins!" << std::endl;
+            std::cout << TEXT_FINAL_SCORE << COLOR[0] << score[0] << RESET << " - " << COLOR[1] << score[1] << RESET << std::endl;
+            std::cout << COLOR[i] << names[i] << RESET << TEXT_WINS << std::endl;
             return true;
         }
     }
     if(score[0] == 24 && score[1] == 24){
-        std::cout << "Final Score: " << COLOR[0] << score[0] << RESET << " - " << COLOR[1] << score[1] << RESET << std::endl;
-        std::cout << "The game has tied" << std::endl;
+        std::cout << TEXT_FINAL_SCORE << COLOR[0] << score[0] << RESET << " - " << COLOR[1] << score[1] << RESET << std::endl;
+        std::cout << TEXT_TIE << std::endl;
         return true;
     }
 
@@ -110,7 +111,7 @@ bool Board::gameOver(int id){
             return false;
         }
     }
-    std::cout << std::endl << "No more valid moves available." << std::endl;
+    std::cout << std::endl << TEXT_NO_VALID_MOVES << std::endl;
     for(int i = 0; i < 6; i++){
         score[1] += board[i];
     }
@@ -125,7 +126,7 @@ void Board::terminate(){
 }
 
 void Board::forceEnd(){
-    std::cout << std::endl << "The game has been forced to end" << std::endl;
+    std::cout << std::endl << TEXT_FORCED_END << std::endl;
     for(int i = 0; i < 6; i++){
         score[1] += board[i];
     }

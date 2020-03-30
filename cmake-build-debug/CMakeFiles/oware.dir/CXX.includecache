@@ -28,6 +28,10 @@ Board.h
 Player.h
 /mnt/c/FEUP/prog/oware/include/Player.h
 
+/mnt/c/FEUP/prog/oware/include/Text.h
+string
+-
+
 /mnt/c/FEUP/prog/oware/src/Board.cpp
 iostream
 -
@@ -35,6 +39,8 @@ iomanip
 -
 ../include/Board.h
 /mnt/c/FEUP/prog/oware/include/Board.h
+../include/Text.h
+/mnt/c/FEUP/prog/oware/include/Text.h
 
 /mnt/c/FEUP/prog/oware/src/Player.cpp
 iostream
@@ -47,6 +53,8 @@ random
 /mnt/c/FEUP/prog/oware/include/Player.h
 ../include/Board.h
 /mnt/c/FEUP/prog/oware/include/Board.h
+../include/Text.h
+/mnt/c/FEUP/prog/oware/include/Text.h
 
 /mnt/c/FEUP/prog/oware/src/Tcp.cpp
 iostream
@@ -65,6 +73,12 @@ arpa/inet.h
 -
 ../include/Tcp.h
 /mnt/c/FEUP/prog/oware/include/Tcp.h
+../include/Text.h
+/mnt/c/FEUP/prog/oware/include/Text.h
+
+/mnt/c/FEUP/prog/oware/src/Text.cpp
+../include/Text.h
+/mnt/c/FEUP/prog/oware/include/Text.h
 
 /mnt/c/FEUP/prog/oware/src/main.cpp
 iostream
@@ -75,4 +89,6 @@ iostream
 /mnt/c/FEUP/prog/oware/include/Player.h
 ../include/Tcp.h
 /mnt/c/FEUP/prog/oware/include/Tcp.h
+../include/Text.h
+/mnt/c/FEUP/prog/oware/include/Text.h
 

@@ -3,18 +3,25 @@
 
 CMakeFiles/oware.dir/src/Board.cpp.o
  /mnt/c/FEUP/prog/oware/include/Board.h
+ /mnt/c/FEUP/prog/oware/include/Text.h
  /mnt/c/FEUP/prog/oware/src/Board.cpp
 CMakeFiles/oware.dir/src/Player.cpp.o
  /mnt/c/FEUP/prog/oware/include/Board.h
  /mnt/c/FEUP/prog/oware/include/Player.h
+ /mnt/c/FEUP/prog/oware/include/Text.h
  /mnt/c/FEUP/prog/oware/src/Player.cpp
 CMakeFiles/oware.dir/src/Tcp.cpp.o
  /mnt/c/FEUP/prog/oware/include/Board.h
  /mnt/c/FEUP/prog/oware/include/Player.h
  /mnt/c/FEUP/prog/oware/include/Tcp.h
+ /mnt/c/FEUP/prog/oware/include/Text.h
  /mnt/c/FEUP/prog/oware/src/Tcp.cpp
+CMakeFiles/oware.dir/src/Text.cpp.o
+ /mnt/c/FEUP/prog/oware/include/Text.h
+ /mnt/c/FEUP/prog/oware/src/Text.cpp
 CMakeFiles/oware.dir/src/main.cpp.o
  /mnt/c/FEUP/prog/oware/include/Board.h
  /mnt/c/FEUP/prog/oware/include/Player.h
  /mnt/c/FEUP/prog/oware/include/Tcp.h
+ /mnt/c/FEUP/prog/oware/include/Text.h
  /mnt/c/FEUP/prog/oware/src/main.cpp

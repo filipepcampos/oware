@@ -4,6 +4,7 @@
 #include <winsock2.h>
 #include <Ws2tcpip.h>
 #include "../include/Tcp.h"
+#include "../include/Text.h"
 
 
 namespace Tcp{
@@ -33,14 +34,14 @@ namespace Tcp{
                 host();
                 return;
             }
-            std::cout << "There's already a host in this computer, connecting to it." << std::endl;
+            std::cout << TEXT_ALREADY_HOST << std::endl;
             client(sock);
             return;
         }
         // Try to connect to given ip address. If connection is not possible, host the game
         inet_pton(AF_INET, ip_address.c_str(), &server_address.sin_addr);
         if(connect(sock, (struct sockaddr *)&server_address, sizeof(server_address)) < 0){
-            std::cout << "No server found at given ip address." << std::endl;
+            std::cout << TEXT_SERVER_NOT_FOUND << std::endl;
             host();
             return;
         }
@@ -48,7 +49,7 @@ namespace Tcp{
     }
 
     std::string readIpAddress(){
-        std::cout << "\nIf you wish to join a game, type the id address. To host please press enter" << std::endl;
+        std::cout << std::endl << TEXT_IP_ADDRESS_PROMPT << std::endl;
         std::string ip_address;
         std::cout << "> "; std::getline(std::cin, ip_address);
         if(std::cin.eof()){
@@ -61,7 +62,7 @@ namespace Tcp{
         char buffer[1] = {0};
         read(sock, buffer, 1);
         if(buffer[0] == 0){
-            std::cout << "There's already a game in progress at the given ip address.";
+            std::cout << TEXT_ONGOING_GAME << std::endl;
             exit(1);
         }
         const int ID = 1;
@@ -97,7 +98,7 @@ namespace Tcp{
         char buffer[1024] = {0};
         recv(sock, buffer, 1024, 0);
         if(buffer[0] == 0){
-            std::cout << "Couldn't get opponent information" << std::endl;
+            std::cout << TEXT_FAILED_GET_OPPONENT_INFO << std::endl;
             exit(1);
         }
         std::string result = buffer;
@@ -116,7 +117,7 @@ namespace Tcp{
                 send(game.sock, information, 1, 0);
             }
             else{
-                std::cout << COLOR[opponent_id] << game.opponent_name << "'s turn." << RESET << std::endl;
+                std::cout << COLOR[opponent_id] << game.opponent_name << TEXT_TURN << RESET << std::endl;
                 buffer[0] = 0;
                 recv(game.sock, buffer, 1, 0);
                 char move = buffer[0];
@@ -125,7 +126,7 @@ namespace Tcp{
                     continue;
                 }
                 if(move == 0){
-                    std::cout << "Opponent has disconnected.";
+                    std::cout << TEXT_OPPONENT_DISCONNECTED;
                     game.board.terminate();
                     continue;
                 }
@@ -147,7 +148,9 @@ namespace Tcp{
         bind(server_socket, (struct sockaddr *)&server, sizeof(server));
         listen(server_socket, 3);
         c = sizeof(struct sockaddr_in);
+        std::cout << TEXT_SERVER_INITIALIZED << std::endl;
         new_socket = accept(server_socket, (struct sockaddr *)&client, &c);
+        std::cout << TEXT_CONNECTION_ESTABLISHED << std::endl;
         char confirmation[1] = {1};
         send(new_socket, confirmation, 1, 0);
         return new_socket;
@@ -169,7 +172,7 @@ namespace Tcp{
         const char* p = inet_ntop(AF_INET, &name.sin_addr, buffer, 80);
         if(p != nullptr)
         {
-            std::cout << "Local IP address is: " << buffer << std::endl;
+            std::cout << TEXT_LOCAL_IP << buffer << std::endl;
         }
         closesocket(sock);
     }

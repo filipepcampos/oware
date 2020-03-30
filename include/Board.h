@@ -67,11 +67,6 @@ public:
     void terminate();
 
 private:
-    // ANSI Escape codes to manipulate the output terminal
-    const std::string COLOR[2] = {"\033[36m", "\033[31m"};
-    const std::string RESET = "\033[0m";
-    const std::string CLEAR = "\033[2J\033[0;0H";
-
     // Sizing of the board
     const unsigned char TOTAL_WIDTH = 100;
     const unsigned char LEFT_MARGIN = 5;

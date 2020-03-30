@@ -1,3 +1,3 @@
-/mnt/c/feup/prog/oware/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/mnt/c/feup/prog/oware/cmake-build-debug/CMakeFiles/oware.dir
-/mnt/c/feup/prog/oware/cmake-build-debug/CMakeFiles/edit_cache.dir
+/mnt/c/FEUP/prog/oware/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/mnt/c/FEUP/prog/oware/cmake-build-debug/CMakeFiles/oware.dir
+/mnt/c/FEUP/prog/oware/cmake-build-debug/CMakeFiles/edit_cache.dir

@@ -3,6 +3,7 @@
 #include <random>
 #include "../include/Player.h"
 #include "../include/Board.h"
+#include "../include/Text.h"
 
 int Player::id_counter = 0;
 
@@ -22,20 +23,20 @@ void Player::getPlayerName(){
     if(ai)
         name = "AI";
     while(name.empty()){
-        std::cout << COLOR[id] << "Player " << id + 1 << "'s" << RESET << " name: ";
+        std::cout << COLOR[id] << TEXT_NAME_PROMPT_1 << id + 1 << TEXT_NAME_PROMPT_2 << RESET << TEXT_NAME_PROMPT_3;
         std::cin >> std::ws;
         getline(std::cin, name, '\n');
         bool valid = true;
         if(std::cin.eof()){
-            std::cin.clear();
-            valid = false;
+            std::cout << TEXT_IOERROR << std::endl;
+            exit(1);
         }
         if(name.back() == ' '){
-            std::cout << "Please remove trailing whitespace." << std::endl;
+            std::cout << TEXT_TRAILING_WHITESPACE << std::endl;
             valid = false;
         }
         if(name.length() > NAME_MAX_LEN){
-            std::cout << "Name is too long, please choose a name with less than " << NAME_MAX_LEN + 1 << " characters." << std::endl;
+            std::cout << TEXT_NAME_EXCEEDS_MAXLEN_1 << NAME_MAX_LEN + 1 << TEXT_NAME_EXCEEDS_MAXLEN_2 << std::endl;
             valid = false;
         }
         if(!valid)
@@ -45,7 +46,7 @@ void Player::getPlayerName(){
 
 
 char Player::play(Board &board){
-    std::cout << COLOR[id] << name << "'s turn." << RESET << std::endl;
+    std::cout << COLOR[id] << name << TEXT_TURN << RESET << std::endl;
     char move;
     if(ai){
         move = playAI(board);
@@ -63,7 +64,7 @@ char Player::playHuman(Board &board){
     }
     else{
         while(!board.validatePlay(move, id)){
-            std::cout << "You're not allowed to make that move." << std::endl;
+            std::cout << TEXT_MOVE_NOT_ALLOWED << std::endl;
             move = inputPrompt();
         }
         board.play(move, id);
@@ -99,7 +100,7 @@ char Player::playAI(Board &board){
 char Player::inputPrompt(){
     std::string input = readInput();
     while(input!="a" && input!="b" && input!="c" && input!="d" && input!="e" && input!="f" && input!="end"){
-        std::cout << "Invalid input, please type a, b, c, d, e, f (lower or uppercase) or end to end the game." << std::endl;
+        std::cout << TEXT_PLAY_INVALID_INPUT << std::endl;
         input = readInput();
     }
     if(input == "end") return 'x';
@@ -111,7 +112,8 @@ std::string Player::readInput(){
     std::string input;
     std::getline(std::cin, input);
     if(std::cin.eof()){
-        std::cin.clear();
+        std::cout << TEXT_IOERROR << std::endl;
+        exit(1);
     }
     std::for_each(input.begin(), input.end(), [](char & c){
         c = tolower(c);

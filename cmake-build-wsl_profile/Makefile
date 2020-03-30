@@ -51,7 +51,7 @@ EQUALS = =
 CMAKE_SOURCE_DIR = /mnt/c/FEUP/prog/oware
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/feup/prog/oware/cmake-build-wsl_profile
+CMAKE_BINARY_DIR = /mnt/c/FEUP/prog/oware/cmake-build-wsl_profile
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/feup/prog/oware/cmake-build-wsl_profile/CMakeFiles /mnt/c/feup/prog/oware/cmake-build-wsl_profile/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/FEUP/prog/oware/cmake-build-wsl_profile/CMakeFiles /mnt/c/FEUP/prog/oware/cmake-build-wsl_profile/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/feup/prog/oware/cmake-build-wsl_profile/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/FEUP/prog/oware/cmake-build-wsl_profile/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -204,6 +204,33 @@ src/Tcp.cpp.s:
 	$(MAKE) -f CMakeFiles/oware.dir/build.make CMakeFiles/oware.dir/src/Tcp.cpp.s
 .PHONY : src/Tcp.cpp.s
 
+src/Text.o: src/Text.cpp.o
+
+.PHONY : src/Text.o
+
+# target to build an object file
+src/Text.cpp.o:
+	$(MAKE) -f CMakeFiles/oware.dir/build.make CMakeFiles/oware.dir/src/Text.cpp.o
+.PHONY : src/Text.cpp.o
+
+src/Text.i: src/Text.cpp.i
+
+.PHONY : src/Text.i
+
+# target to preprocess a source file
+src/Text.cpp.i:
+	$(MAKE) -f CMakeFiles/oware.dir/build.make CMakeFiles/oware.dir/src/Text.cpp.i
+.PHONY : src/Text.cpp.i
+
+src/Text.s: src/Text.cpp.s
+
+.PHONY : src/Text.s
+
+# target to generate assembly for a file
+src/Text.cpp.s:
+	$(MAKE) -f CMakeFiles/oware.dir/build.make CMakeFiles/oware.dir/src/Text.cpp.s
+.PHONY : src/Text.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -249,6 +276,9 @@ help:
 	@echo "... src/Tcp.o"
 	@echo "... src/Tcp.i"
 	@echo "... src/Tcp.s"
+	@echo "... src/Text.o"
+	@echo "... src/Text.i"
+	@echo "... src/Text.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

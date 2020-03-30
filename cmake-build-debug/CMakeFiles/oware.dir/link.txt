@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/oware.dir/src/main.cpp.o CMakeFiles/oware.dir/src/Board.cpp.o CMakeFiles/oware.dir/src/Player.cpp.o CMakeFiles/oware.dir/src/Tcp.cpp.o  -o oware 
+/usr/bin/c++  -g   CMakeFiles/oware.dir/src/main.cpp.o CMakeFiles/oware.dir/src/Board.cpp.o CMakeFiles/oware.dir/src/Player.cpp.o CMakeFiles/oware.dir/src/Tcp.cpp.o CMakeFiles/oware.dir/src/Text.cpp.o  -o oware 
