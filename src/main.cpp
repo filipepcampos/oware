@@ -36,16 +36,17 @@ int chooseGameMode(bool &tcp, bool &ai){
     const std::string COLOR = "\033[33m";
     const std::string RESET = "\033[0m";
     std::string game_mode;
+    std::cout << "\nPlease choose a game mode:\n" <<
+                COLOR << " 1 " << RESET << "- Single player\n" <<
+                COLOR << " 2 " << RESET << "- Local two player\n" <<
+                COLOR << " 3 " << RESET << "- Network two player\n";
+
     while(game_mode.empty()){
-        std::cout << "\nPlease choose a game mode:\n" <<
-                    COLOR << " 1 " << RESET << "- Single player\n" <<
-                    COLOR << " 2 " << RESET << "- Local two player\n" <<
-                    COLOR << " 3 " << RESET << "- Network two player\n";
         std::cout << " > ";
         std::getline(std::cin, game_mode);
         if(std::cin.eof()){
-            std::cout << "An IO error has occurred." << std::endl;
-            exit(1);
+            game_mode.clear();
+            std::cin.clear();
         }
         if(game_mode == "1"){
             ai = true;

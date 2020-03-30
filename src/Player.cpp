@@ -27,8 +27,8 @@ void Player::getPlayerName(){
         getline(std::cin, name, '\n');
         bool valid = true;
         if(std::cin.eof()){
-            std::cout << "An IO error has occurred." << std::endl;
-            exit(1);
+            std::cin.clear();
+            valid = false;
         }
         if(name.back() == ' '){
             std::cout << "Please remove trailing whitespace." << std::endl;
@@ -111,8 +111,7 @@ std::string Player::readInput(){
     std::string input;
     std::getline(std::cin, input);
     if(std::cin.eof()){
-        std::cout << "An IO error has occurred." << std::endl;
-        exit(1);
+        std::cin.clear();
     }
     std::for_each(input.begin(), input.end(), [](char & c){
         c = tolower(c);

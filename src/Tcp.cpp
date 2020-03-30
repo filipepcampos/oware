@@ -18,21 +18,25 @@ namespace Tcp{
     };
 
 
-     void playGame(){
+    void playGame(){
         int sock = 0;
         struct sockaddr_in server_address;
         sock = socket(AF_INET, SOCK_STREAM, 0);
         server_address.sin_family = AF_INET;
         server_address.sin_port = htons(PORT);
-        std::cout << "\nIf you wish to join a game, type the id address. To host please press enter" << std::endl;
-        std::string ip_address;
-        std::cout << "> "; std::getline(std::cin, ip_address);
-        if(std::cin.eof()){
-            std::cout << "An IO error has occurred." << std::endl;
-            return;
-        }
+
+        std::string ip_address = readIpAddress();
+        inet_pton(AF_INET, ip_address.c_str(), &server_address.sin_addr);
         if(ip_address.empty()){
-            host();
+            // If no address is specified, try to connect to localhost so there's only 1 host per computer
+            ip_address = "127.0.0.1";
+            inet_pton(AF_INET, ip_address.c_str(), &server_address.sin_addr);
+            if(connect(sock, (struct sockaddr *)&server_address, sizeof(server_address)) < 0){
+                host();
+                return;
+            }
+            std::cout << "There's already a host in this computer, connecting to it." << std::endl;
+            client(sock);
             return;
         }
         // Try to connect to given ip address. If connection is not possible, host the game
@@ -43,9 +47,26 @@ namespace Tcp{
             return;
         }
         client(sock);
- }
+    }
+
+     std::string readIpAddress(){
+         std::cout << "\nIf you wish to join a game, type the id address. To host please press enter" << std::endl;
+         std::string ip_address;
+         std::cout << "> "; std::getline(std::cin, ip_address);
+         if(std::cin.eof()){
+             std::cin.clear();
+         }
+         return ip_address;
+     }
 
     void client(int sock){
+        char buffer[1] = {0};
+        read(sock, buffer, 1);
+        if(buffer[0] == 0){
+            std::cout << "There's already a game in progress at the given ip address.";
+            exit(1);
+        }
+
         const int ID = 1;
         Player player(ID);
 
@@ -99,14 +120,14 @@ namespace Tcp{
             }
             else{
                 std::cout << COLOR[opponent_id] << game.opponent_name << "'s turn." << RESET << std::endl;
-                buffer[0] = 'z';
+                buffer[0] = 0;
                 read(game.sock, buffer, 1);
                 char move = buffer[0];
                 if(move == 'x'){
                     game.board.forceEnd();
                     continue;
                 }
-                if(move == 'z'){
+                if(move == 0){
                     std::cout << "Opponent has disconnected.";
                     game.board.terminate();
                     continue;
@@ -134,19 +155,22 @@ namespace Tcp{
         std::cout << "Server initialized." << std::endl;
         new_socket = accept(server_socket, (struct sockaddr *)&address, (socklen_t*)&address_len);
         std::cout << "Connection established." << std::endl;
+        char confirmation[1] = {1};
+        send(new_socket, confirmation, 1, 0);
         return new_socket;
     }
 
     void printHostIP(){
         const char* google_dns_server = "8.8.8.8";
         int dns_port = 53;
-        struct sockaddr_in serv;
+        struct sockaddr_in server;
         int sock = socket(AF_INET, SOCK_DGRAM, 0);
-        memset(&serv, 0, sizeof(serv));
-        serv.sin_family = AF_INET;
-        serv.sin_addr.s_addr = inet_addr(google_dns_server);
-        serv.sin_port = htons(dns_port);
-        connect(sock, (const struct sockaddr*)&serv, sizeof(serv));
+        memset(&server, 0, sizeof(server));
+        server.sin_family = AF_INET;
+        server.sin_addr.s_addr = inet_addr(google_dns_server);
+        server.sin_port = htons(dns_port);
+        connect(sock, (const struct sockaddr*)&server, sizeof(server));
+
         struct sockaddr_in name;
         socklen_t namelen = sizeof(name);
         getsockname(sock, (struct sockaddr*)&name, &namelen);

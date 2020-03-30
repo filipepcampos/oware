@@ -38,6 +38,12 @@ namespace Tcp{
     std::string readOpponentName(int sock);
 
     /**
+     * Read ip address input from user
+     * @return (std::string) Ip address
+     */
+    std::string readIpAddress();
+
+    /**
      * Contact Google DNS Server to get your ip
      * This allows host to know what ip to share with the second player
      * @return (none)
