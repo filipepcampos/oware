@@ -60,6 +60,12 @@ namespace Tcp{
      }
 
     void client(int sock){
+        char buffer[1];
+        read(sock, buffer, 1);
+        if(buffer[0] == 0){
+            std::cout << "An game is already taking place at that ip address" << std::endl;
+            exit(1);
+        }
         const int ID = 1;
         Player player(ID);
 
@@ -148,6 +154,8 @@ namespace Tcp{
         std::cout << "Server initialized." << std::endl;
         new_socket = accept(server_socket, (struct sockaddr *)&address, (socklen_t*)&address_len);
         std::cout << "Connection established." << std::endl;
+        char confirmation[1] = {1};
+        send(new_socket, confirmation, 1, 0);
         return new_socket;
     }
 
