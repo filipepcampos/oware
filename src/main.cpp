@@ -34,7 +34,6 @@ int main() {
 }
 
 int chooseGameMode(bool &tcp, bool &ai){
-    std::string game_mode;
     std::cout << std::endl << TEXT_GAMEMODE << std::endl <<
                 HIGHLIGHT_COLOR << " 1 " << RESET << TEXT_GAMEMODE_OPT1 << std::endl <<
                 HIGHLIGHT_COLOR << " 2 " << RESET << TEXT_GAMEMODE_OPT2 << std::endl <<
@@ -56,9 +55,9 @@ int chooseGameMode(bool &tcp, bool &ai){
         }
         else{
             switch(option){
-                case 1: ai = true; tcp = false; break;
-                case 2: ai = false; tcp = false; break;
-                case 3: ai = false; tcp = true; break;
+                case 1: ai = true; break;
+                case 2: break;
+                case 3: tcp = true; break;
                 default: valid = false;
             }
         }
@@ -66,6 +65,6 @@ int chooseGameMode(bool &tcp, bool &ai){
             std::cout << TEXT_INVALID_INPUT << std::endl;
 
     }while(!valid);
-
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     return 0;
 }

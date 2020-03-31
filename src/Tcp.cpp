@@ -124,16 +124,11 @@ namespace Tcp{
                 buffer[0] = 0;
                 read(game.sock, buffer, 1);
                 char move = buffer[0];
-                if(move == 'x'){
-                    game.board.forceEnd();
-                    continue;
+                switch(move){
+                    case 'x': game.board.forceEnd(); break;
+                    case 0: std::cout << TEXT_OPPONENT_DISCONNECTED << std::endl;  game.board.terminate(); break;
+                    default: game.board.play(move, opponent_id);
                 }
-                if(move == 0){
-                    std::cout << TEXT_OPPONENT_DISCONNECTED;
-                    game.board.terminate();
-                    continue;
-                }
-                game.board.play(move, opponent_id);
             }
         } while(!game.board.gameOver(turn));
         close(game.sock);
@@ -154,10 +149,11 @@ namespace Tcp{
         bind(server_socket, (struct sockaddr *)&address, sizeof(address));
         listen(server_socket, 3);
         std::cout << TEXT_SERVER_INITIALIZED << std::endl;
+
         new_socket = accept(server_socket, (struct sockaddr *)&address, (socklen_t*)&address_len);
-        std::cout << TEXT_CONNECTION_ESTABLISHED << std::endl;
         char confirmation[1] = {1};
         send(new_socket, confirmation, 1, 0);
+        std::cout << TEXT_CONNECTION_ESTABLISHED << std::endl;
         return new_socket;
     }
 

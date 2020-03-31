@@ -2,7 +2,6 @@
 #define OWARE_BOARD_H
 #include <array>
 #include <string>
-#include <string>
 
 class Board {
 public:

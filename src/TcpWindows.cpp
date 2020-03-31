@@ -126,7 +126,7 @@ namespace Tcp{
                     continue;
                 }
                 if(move == 0){
-                    std::cout << TEXT_OPPONENT_DISCONNECTED;
+                    std::cout << TEXT_OPPONENT_DISCONNECTED << std::endl;
                     game.board.terminate();
                     continue;
                 }

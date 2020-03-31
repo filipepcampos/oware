@@ -29,8 +29,6 @@ Player.h
 /mnt/c/FEUP/prog/oware/include/Player.h
 
 /mnt/c/FEUP/prog/oware/include/Text.h
-string
--
 
 /mnt/c/FEUP/prog/oware/src/Board.cpp
 iostream
