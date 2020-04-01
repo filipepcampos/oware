@@ -1,5 +1,3 @@
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "MemberFunctionCanBeStatic"
 #include <iostream>
 #include <iomanip>
 #include "../include/Board.h"
@@ -9,7 +7,6 @@ Board::Board(){
     std::cout << CLEAR;
     print();
 }
-
 
 void Board::registerPlayerNames(std::string &name1, std::string &name2){
     names[0] = name1;
@@ -121,9 +118,11 @@ bool Board::gameOver(int id){
     return gameOver(id);
 }
 
+
 void Board::terminate(){
     terminate_game = true;
 }
+
 
 void Board::forceEnd(){
     std::cout << std::endl << TEXT_FORCED_END << std::endl;
@@ -148,55 +147,36 @@ bool Board::hasSeeds(int id, std::array<int, 12> arr){
 }
 
 
-void Board::print(){
-    int bar_width = TOTAL_WIDTH - LEFT_MARGIN;
+void Board::print() {
     std::cout << std::endl;
-    printLetters();
-    std::cout << std::setw(TOTAL_WIDTH) << std::string(bar_width, '-') << std::endl;
-    printDividers();
+    std::cout << "                         A          B          C          D          E          F"                    << std::endl;
+    std::cout << "     ──────────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────────" << std::endl;
+    std::cout << "                   │          │          │          │          │          │          │"               << std::endl;
     printSeeds(0);
-    printDividers();
+    std::cout << "                   │          │          │          │          │          │          │"               << std::endl;
     printMiddle();
-    printDividers();
+    std::cout << "                   │          │          │          │          │          │          │"               << std::endl;
     printSeeds(1);
-    printDividers();
-    std::cout << std::setw(TOTAL_WIDTH) << std::string(bar_width, '-') << std::endl;
-    printLetters();  std::cout << std::endl;
-}
-
-void Board::printDividers(){
-    std::cout << std::setw(SCORE_INDENT) << '|';
-    for(int i = 0; i < 6; i++){
-        std::cout << std::setw(HOUSE_SPACING) << '|';
-    }
+    std::cout << "                   │          │          │          │          │          │          │"               << std::endl;
+    std::cout << "     ──────────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────────" << std::endl;
+    std::cout << "                         A          B          C          D          E          F"                    << std::endl;
     std::cout << std::endl;
 }
 
-void Board::printLetters(){
-    std::cout << std::setw(SCORE_INDENT + HOUSE_SPACING / 2 + 1);
-    for(char c = 'A'; c <= 'F'; c++){
-        std::cout << c << std::setw(HOUSE_SPACING);
-    }
-    std::cout << std::setw(0) << std::endl;
-}
 
 void Board::printSeeds(int id){
-    std::cout << std::setw(SCORE_INDENT) << '|';
+    std::cout << std::setw(SCORE_INDENT+2) << "│";
     for(int i = 0; i < 6; i++){
         int position = i;
-        if(id == 0){
+        if(id == 0)
             position = 11 - i;
-        }
-        std::cout << COLOR[id] << std::setw(HOUSE_SPACING / 2 + 1) << board[position] << RESET << std::setw(HOUSE_SPACING / 2) << '|';
+        std::cout << COLOR[id] << std::setw(HOUSE_SPACING / 2 + 1) << board[position] << RESET << std::setw(HOUSE_SPACING / 2 + 2) << "│";
     }
     std::cout << std::endl;
 }
 
 void Board::printMiddle(){
-    std::cout << COLOR[0] << std::setw(SCORE_INDENT - SCORE_MARGIN) << score[0] << RESET
-        << std::setw(SCORE_MARGIN) << '|';
-    std::cout << std::string(HOUSE_SPACING * 6 - 1, '-') << '|';
-    std::cout << COLOR[1] << std::setw(SCORE_MARGIN) << score[1] << RESET << std::endl;
+    std::cout << COLOR[0] << std::setw(SCORE_INDENT - SCORE_MARGIN) << score[0] << RESET;
+    std::cout << "    ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤";
+    std::cout <<  COLOR[1] << std::setw(SCORE_MARGIN) << score[1] << RESET << std::endl;
 }
-
-#pragma clang diagnostic pop

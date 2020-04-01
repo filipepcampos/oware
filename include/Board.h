@@ -111,18 +111,6 @@ private:
     void print();
 
     /**
-     * Print house dividers (|  |  |  |  |  |  |)
-     * @return (none)
-     */
-    void printDividers();
-
-    /**
-     * Print letters 'A' through 'F' on top of each house
-     * @return (none)
-     */
-    void printLetters();
-
-    /**
      * Print line with seed numbers (| 4 | 4 | 4 | 4 | 4 | 4 |)
      * @return (none)
      */

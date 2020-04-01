@@ -7,6 +7,13 @@
 int chooseGameMode(bool &tcp, bool &ai);
 
 int main() {
+    std::cout << std::endl;
+    std::cout << "    __\n"
+                 "  / __ \\                        \n"
+                 " | |  | |_      ____ _ _ __ ___ \n"
+                 " | |  | \\ \\ /\\ / / _` | '__/ _ \\\n"
+                 " | |__| |\\ V  V / (_| | | |  __/\n"
+                 "  \\____/  \\_/\\_/ \\__,_|_|  \\___|\n\n";
     bool enable_tcp = false;
     bool enable_ai = false;
     chooseGameMode(enable_tcp, enable_ai);
@@ -38,33 +45,26 @@ int chooseGameMode(bool &tcp, bool &ai){
                 HIGHLIGHT_COLOR << " 1 " << RESET << TEXT_GAMEMODE_OPT1 << std::endl <<
                 HIGHLIGHT_COLOR << " 2 " << RESET << TEXT_GAMEMODE_OPT2 << std::endl <<
                 HIGHLIGHT_COLOR << " 3 " << RESET << TEXT_GAMEMODE_OPT3 << std::endl;
-    bool valid;
-    do{
-        valid = true;
+
+    std::string game_mode;
+    bool valid = false;
+    while(game_mode.empty() || !valid){
         std::cout << " > ";
-        int option;
-        std::cin >> option;
+        std::getline(std::cin, game_mode);
         if(std::cin.eof()){
             std::cout << TEXT_IOERROR << std::endl;
             exit(1);
         }
-        if(std::cin.bad() || std::cin.peek() != '\n'){
-            valid = false;
-            std::cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        if(game_mode == "1"){
+            ai = true; valid = true; continue;
         }
-        else{
-            switch(option){
-                case 1: ai = true; break;
-                case 2: break;
-                case 3: tcp = true; break;
-                default: valid = false;
-            }
+        if(game_mode == "2"){
+            valid = true; continue;
         }
-        if(!valid)
-            std::cout << TEXT_INVALID_INPUT << std::endl;
-
-    }while(!valid);
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        if(game_mode == "3"){
+            tcp = true; valid = true; continue;
+        }
+        std::cout << TEXT_INVALID_INPUT << std::endl;
+    }
     return 0;
 }

@@ -15,4 +15,4 @@
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /mnt/c/FEUP/prog/oware/cmake-build-wsl_profile
+-- Build files have been written to: /mnt/c/feup/prog/oware/cmake-build-wsl_profile

@@ -22,11 +22,15 @@ Player::Player(int fixed_id){
 void Player::getPlayerName(){
     if(ai)
         name = "AI";
-    while(name.empty()){
+    bool valid = true;
+    while(name.empty() || !valid){
+        valid = true;
         std::cout << COLOR[id] << TEXT_NAME_PROMPT_1 << id + 1 << TEXT_NAME_PROMPT_2 << RESET << TEXT_NAME_PROMPT_3;
-        std::cin >> std::ws;
+        if(std::cin.peek() != '\n'){
+            std::cin >> std::ws;
+        }
         getline(std::cin, name, '\n');
-        bool valid = true;
+
         if(std::cin.eof()){
             std::cout << TEXT_IOERROR << std::endl;
             exit(1);
@@ -39,21 +43,13 @@ void Player::getPlayerName(){
             std::cout << TEXT_NAME_EXCEEDS_MAXLEN_1 << NAME_MAX_LEN + 1 << TEXT_NAME_EXCEEDS_MAXLEN_2 << std::endl;
             valid = false;
         }
-        if(!valid)
-            name.clear();
     }
 }
 
 
 char Player::play(Board &board){
     std::cout << COLOR[id] << name << TEXT_TURN << RESET << std::endl;
-    char move;
-    if(ai){
-        move = playAI(board);
-    }
-    else{
-        move = playHuman(board);
-    }
+    char move = ai ? playAI(board) : playHuman(board);
     return move;
 }
 

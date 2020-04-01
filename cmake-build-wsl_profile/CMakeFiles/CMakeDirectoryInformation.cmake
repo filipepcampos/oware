@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 set(CMAKE_RELATIVE_PATH_TOP_SOURCE "/mnt/c/FEUP/prog/oware")
-set(CMAKE_RELATIVE_PATH_TOP_BINARY "/mnt/c/FEUP/prog/oware/cmake-build-wsl_profile")
+set(CMAKE_RELATIVE_PATH_TOP_BINARY "/mnt/c/feup/prog/oware/cmake-build-wsl_profile")
 
 # Force unix paths in dependencies.
 set(CMAKE_FORCE_UNIX_PATHS 1)
