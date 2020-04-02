@@ -1,16 +1,16 @@
-                            Oware, a turn-based game developed for Linux
+                                      Oware, a turn-based game developed for Linux
 ------------------------------------------------------------------------------------------------------------------------
 
 All defined objectives were accomplished.
 Improvements:
-    * Object-oriented programming that allows for code that's better organized and more modular
+    * Object-oriented programming that allows for code that's better organized and modular
     * Bot that chooses the move that grants the highest immediate score
     * Two player mode over the network (Only tested within the same network)
     * Centralization of string resources that facilitates any future translation of the game.
     * Documentation of methods within header files.
 
 Controls:
-    Choose a play: 'A', 'B', 'C', 'D', 'E', 'F' ou 'a', 'b', 'c', 'd', 'e', 'f'
+    Choose a move: 'A', 'B', 'C', 'D', 'E', 'F' or 'a', 'b', 'c', 'd', 'e', 'f'
 
     End the game: "end" (any case accepted). This function is useful in case any infinite loop happens,
     each player captures all seeds on their side of the board and a winner is declared.
@@ -41,7 +41,7 @@ Strings:
     All const strings are kept in a separate file to facilitate any change needed.
     ANSI Codes for HIGHLIGHT_COLOR, COLOR[2] (Colors of each player), CLEAR and RESET are kept in said file allowing
     every other file to use them.
-    All text displayed on screen is kept on a std::map<std::string, std::string>
+    All text displayed on screen is kept on a std::map<std::string, std::string>.
 
 Print board:
                          A          B          C          D          E          F                    printLetters()

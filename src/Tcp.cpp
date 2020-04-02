@@ -27,7 +27,6 @@ namespace Tcp{
         server_address.sin_port = htons(PORT);
 
         std::string ip_address = readIpAddress();
-        inet_pton(AF_INET, ip_address.c_str(), &server_address.sin_addr);
         if(ip_address.empty()){
             // If no address is specified, try to connect to localhost so there's only 1 host per computer
             ip_address = "127.0.0.1";
@@ -41,8 +40,8 @@ namespace Tcp{
             return;
         }
         // Try to connect to given ip address. If connection is not possible, host the game
-        inet_pton(AF_INET, ip_address.c_str(), &server_address.sin_addr);
-        if(connect(sock, (struct sockaddr *)&server_address, sizeof(server_address)) < 0){
+        int status = inet_pton(AF_INET, ip_address.c_str(), &server_address.sin_addr);
+        if(status < 1 || connect(sock, (struct sockaddr *)&server_address, sizeof(server_address)) < 0){
             std::cout << TEXT.at("SERVER_NOT_FOUND") << std::endl;
             host();
             return;

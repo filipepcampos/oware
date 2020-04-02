@@ -14,6 +14,7 @@ const std::map<std::string, std::string> TEXT = {
         {"GAMEMODE_OPT3",           "- Network two-player"},
         {"IOERROR",                 "IO Error has occurred."},
         {"INVALID_INPUT",           "Invalid input"},
+        {"LEADING_WHITESPACE",     "Please remove leading whitespace"},
         {"TRAILING_WHITESPACE",     "Please remove trailing whitespace."},
         {"NAME_PROMPT_1",           "Player "},
         {"NAME_PROMPT_2",           "'s "},

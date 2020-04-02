@@ -26,14 +26,15 @@ void Player::getPlayerName(){
     while(name.empty() || !valid){
         valid = true;
         std::cout << COLOR[id] << TEXT.at("NAME_PROMPT_1") << id + 1 << TEXT.at("NAME_PROMPT_2") << RESET << TEXT.at("NAME_PROMPT_3");
-        if(std::cin.peek() != '\n'){
-            std::cin >> std::ws;
-        }
         getline(std::cin, name, '\n');
 
         if(std::cin.eof()){
             std::cout << TEXT.at("IOERROR") << std::endl;
             exit(1);
+        }
+        if(name.front() == ' '){
+            std::cout << TEXT.at("LEADING_WHITESPACE") << std::endl;
+            valid = false;
         }
         if(name.back() == ' '){
             std::cout << TEXT.at("TRAILING_WHITESPACE") << std::endl;
