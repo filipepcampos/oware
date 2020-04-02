@@ -14,54 +14,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="55905f02-8bd8-41e8-9216-72eaea16d178" name="Default Changelist" comment="/">
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/user.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/README.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Board.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Board.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Player.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Player.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Tcp.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Tcp.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Text.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Text.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/oware" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/oware" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/oware.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/oware.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/oware.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/oware.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-release/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/oware.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/oware.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/oware.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release/CMakeFiles/oware.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-release/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-release/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-release/oware.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-release/oware.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-wsl_profile/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-wsl_profile/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-wsl_profile/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-wsl_profile/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-wsl_profile/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-wsl_profile/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-wsl_profile/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-wsl_profile/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-wsl_profile/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-wsl_profile/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-wsl_profile/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-wsl_profile/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-wsl_profile/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-wsl_profile/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-wsl_profile/CMakeFiles/oware.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-wsl_profile/CMakeFiles/oware.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-wsl_profile/CMakeFiles/oware.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-wsl_profile/CMakeFiles/oware.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-wsl_profile/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-wsl_profile/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-wsl_profile/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-wsl_profile/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-wsl_profile/oware.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-wsl_profile/oware.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/include/Board.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Board.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/Player.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Player.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/Text.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Text.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tcp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tcp.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Text.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Text.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -194,6 +163,11 @@
       <workItem from="1585738651718" duration="56000" />
       <workItem from="1585762169848" duration="815000" />
       <workItem from="1585773146994" duration="49000" />
+      <workItem from="1585775964049" duration="3221000" />
+      <workItem from="1585818232897" duration="914000" />
+      <workItem from="1585820264190" duration="2190000" />
+      <workItem from="1585823462096" duration="1553000" />
+      <workItem from="1585828213782" duration="1035000" />
     </task>
     <servers />
   </component>
@@ -225,22 +199,22 @@
       <screen x="0" y="0" width="1463" height="783" />
     </state>
     <state x="512" y="146" key="FileChooserDialogImpl/0.0.1463.783@0.0.1463.783" timestamp="1584043487562" />
-    <state width="1141" height="711" key="GridCell.Tab.0.bottom" timestamp="1585770766033">
+    <state width="1141" height="421" key="GridCell.Tab.0.bottom" timestamp="1585829132131">
       <screen x="0" y="0" width="1463" height="783" />
     </state>
-    <state width="1141" height="711" key="GridCell.Tab.0.bottom/0.0.1463.783@0.0.1463.783" timestamp="1585770766033" />
-    <state width="1141" height="711" key="GridCell.Tab.0.center" timestamp="1585770766033">
+    <state width="1141" height="421" key="GridCell.Tab.0.bottom/0.0.1463.783@0.0.1463.783" timestamp="1585829132131" />
+    <state width="1141" height="421" key="GridCell.Tab.0.center" timestamp="1585829132131">
       <screen x="0" y="0" width="1463" height="783" />
     </state>
-    <state width="1141" height="711" key="GridCell.Tab.0.center/0.0.1463.783@0.0.1463.783" timestamp="1585770766033" />
-    <state width="1141" height="711" key="GridCell.Tab.0.left" timestamp="1585770766033">
+    <state width="1141" height="421" key="GridCell.Tab.0.center/0.0.1463.783@0.0.1463.783" timestamp="1585829132131" />
+    <state width="1141" height="421" key="GridCell.Tab.0.left" timestamp="1585829132131">
       <screen x="0" y="0" width="1463" height="783" />
     </state>
-    <state width="1141" height="711" key="GridCell.Tab.0.left/0.0.1463.783@0.0.1463.783" timestamp="1585770766033" />
-    <state width="1141" height="711" key="GridCell.Tab.0.right" timestamp="1585770766033">
+    <state width="1141" height="421" key="GridCell.Tab.0.left/0.0.1463.783@0.0.1463.783" timestamp="1585829132131" />
+    <state width="1141" height="421" key="GridCell.Tab.0.right" timestamp="1585829132131">
       <screen x="0" y="0" width="1463" height="783" />
     </state>
-    <state width="1141" height="711" key="GridCell.Tab.0.right/0.0.1463.783@0.0.1463.783" timestamp="1585770766033" />
+    <state width="1141" height="421" key="GridCell.Tab.0.right/0.0.1463.783@0.0.1463.783" timestamp="1585829132131" />
     <state width="709" height="267" key="GridCell.Tab.1.bottom" timestamp="1584630678374">
       <screen x="0" y="0" width="1463" height="783" />
     </state>
@@ -261,10 +235,10 @@
       <screen x="0" y="0" width="1463" height="783" />
     </state>
     <state x="212" y="34" key="SettingsEditor/0.0.1463.783@0.0.1463.783" timestamp="1585688956703" />
-    <state x="406" y="215" key="com.intellij.ide.util.TipDialog" timestamp="1585773157699">
+    <state x="406" y="215" key="com.intellij.ide.util.TipDialog" timestamp="1585828233447">
       <screen x="0" y="0" width="1463" height="783" />
     </state>
-    <state x="406" y="215" key="com.intellij.ide.util.TipDialog/0.0.1463.783@0.0.1463.783" timestamp="1585773157699" />
+    <state x="406" y="215" key="com.intellij.ide.util.TipDialog/0.0.1463.783@0.0.1463.783" timestamp="1585828233447" />
     <state x="0" y="0" width="762" height="783" key="find.popup" timestamp="1585476450416">
       <screen x="0" y="0" width="1463" height="783" />
     </state>
@@ -273,10 +247,10 @@
       <screen x="0" y="0" width="1463" height="783" />
     </state>
     <state x="754" y="180" key="run.anything.popup/0.0.1463.783@0.0.1463.783" timestamp="1585596880588" />
-    <state x="394" y="104" width="672" height="678" key="search.everywhere.popup" timestamp="1585171331801">
+    <state x="394" y="104" width="672" height="678" key="search.everywhere.popup" timestamp="1585776467103">
       <screen x="0" y="0" width="1463" height="783" />
     </state>
-    <state x="394" y="104" width="672" height="678" key="search.everywhere.popup/0.0.1463.783@0.0.1463.783" timestamp="1585171331801" />
+    <state x="394" y="104" width="672" height="678" key="search.everywhere.popup/0.0.1463.783@0.0.1463.783" timestamp="1585776467103" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

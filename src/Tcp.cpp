@@ -36,14 +36,14 @@ namespace Tcp{
                 host();
                 return;
             }
-            std::cout << TEXT_ALREADY_HOST << std::endl;
+            std::cout << TEXT.at("ALREADY_HOST") << std::endl;
             client(sock);
             return;
         }
         // Try to connect to given ip address. If connection is not possible, host the game
         inet_pton(AF_INET, ip_address.c_str(), &server_address.sin_addr);
         if(connect(sock, (struct sockaddr *)&server_address, sizeof(server_address)) < 0){
-            std::cout << TEXT_SERVER_NOT_FOUND << std::endl;
+            std::cout << TEXT.at("SERVER_NOT_FOUND") << std::endl;
             host();
             return;
         }
@@ -51,11 +51,11 @@ namespace Tcp{
     }
 
      std::string readIpAddress(){
-         std::cout << std::endl << TEXT_IP_ADDRESS_PROMPT << std::endl;
+         std::cout << std::endl << TEXT.at("IP_ADDRESS_PROMPT") << std::endl;
          std::string ip_address;
          std::cout << "> "; std::getline(std::cin, ip_address);
          if(std::cin.eof()){
-             std::cout << TEXT_IOERROR << std::endl;
+             std::cout << TEXT.at("IOERROR") << std::endl;
              exit(1);
          }
          return ip_address;
@@ -65,7 +65,7 @@ namespace Tcp{
         char buffer[1];
         read(sock, buffer, 1);
         if(buffer[0] == 0){
-            std::cout << TEXT_ONGOING_GAME << std::endl;
+            std::cout << TEXT.at("ONGOING_GAME") << std::endl;
             exit(1);
         }
         const int ID = 1;
@@ -101,7 +101,7 @@ namespace Tcp{
         char buffer[1024] = {0};
         read(sock, buffer, 1024);
         if(buffer[0] == 0){
-            std::cout << TEXT_FAILED_GET_OPPONENT_INFO << std::endl;
+            std::cout << TEXT.at("FAILED_GET_OPPONENT_INFO") << std::endl;
             exit(1);
         }
         std::string result = buffer;
@@ -120,13 +120,13 @@ namespace Tcp{
                 send(game.sock, information, 1, 0);
             }
             else{
-                std::cout << COLOR[opponent_id] << game.opponent_name << TEXT_TURN << RESET << std::endl;
+                std::cout << COLOR[opponent_id] << game.opponent_name << TEXT.at("TURN") << RESET << std::endl;
                 buffer[0] = 0;
                 read(game.sock, buffer, 1);
                 char move = buffer[0];
                 switch(move){
                     case 'x': game.board.forceEnd(); break;
-                    case 0: std::cout << TEXT_OPPONENT_DISCONNECTED << std::endl;  game.board.terminate(); break;
+                    case 0: std::cout << TEXT.at("OPPONENT_DISCONNECTED") << std::endl;  game.board.terminate(); break;
                     default: game.board.play(move, opponent_id);
                 }
             }
@@ -148,12 +148,12 @@ namespace Tcp{
 
         bind(server_socket, (struct sockaddr *)&address, sizeof(address));
         listen(server_socket, 3);
-        std::cout << TEXT_SERVER_INITIALIZED << std::endl;
+        std::cout << TEXT.at("SERVER_INITIALIZED") << std::endl;
 
         new_socket = accept(server_socket, (struct sockaddr *)&address, (socklen_t*)&address_len);
         char confirmation[1] = {1};
         send(new_socket, confirmation, 1, 0);
-        std::cout << TEXT_CONNECTION_ESTABLISHED << std::endl;
+        std::cout << TEXT.at("CONNECTION_ESTABLISHED") << std::endl;
         return new_socket;
     }
 
@@ -175,7 +175,7 @@ namespace Tcp{
         const char* p = inet_ntop(AF_INET, &name.sin_addr, buffer, 80);
         if(p != nullptr)
         {
-            std::cout << TEXT_LOCAL_IP << buffer << std::endl;
+            std::cout << TEXT.at("LOCAL_IP") << buffer << std::endl;
         }
         close(sock);
     }

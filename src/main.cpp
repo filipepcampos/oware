@@ -4,7 +4,7 @@
 #include "../include/Tcp.h"
 #include "../include/Text.h"
 
-int chooseGameMode(bool &tcp, bool &ai);
+void chooseGameMode(bool &tcp, bool &ai);
 
 int main() {
     std::cout << std::endl;
@@ -40,11 +40,17 @@ int main() {
     return 0;
 }
 
-int chooseGameMode(bool &tcp, bool &ai){
-    std::cout << std::endl << TEXT_GAMEMODE << std::endl <<
-                HIGHLIGHT_COLOR << " 1 " << RESET << TEXT_GAMEMODE_OPT1 << std::endl <<
-                HIGHLIGHT_COLOR << " 2 " << RESET << TEXT_GAMEMODE_OPT2 << std::endl <<
-                HIGHLIGHT_COLOR << " 3 " << RESET << TEXT_GAMEMODE_OPT3 << std::endl;
+/**
+ * Choose the game mode to play and change bool tcp and ai accordingly
+ * @param (bool) &tcp
+ * @param (bool) &ai
+ * @return (none)
+ */
+void chooseGameMode(bool &tcp, bool &ai){
+    std::cout << std::endl << TEXT.at("GAMEMODE") << std::endl <<
+                HIGHLIGHT_COLOR << " 1 " << RESET << TEXT.at("GAMEMODE_OPT1") << std::endl <<
+                HIGHLIGHT_COLOR << " 2 " << RESET << TEXT.at("GAMEMODE_OPT2") << std::endl <<
+                HIGHLIGHT_COLOR << " 3 " << RESET << TEXT.at("GAMEMODE_OPT3") << std::endl;
 
     std::string game_mode;
     bool valid = false;
@@ -52,7 +58,7 @@ int chooseGameMode(bool &tcp, bool &ai){
         std::cout << " > ";
         std::getline(std::cin, game_mode);
         if(std::cin.eof()){
-            std::cout << TEXT_IOERROR << std::endl;
+            std::cout << TEXT.at("IOERROR") << std::endl;
             exit(1);
         }
         if(game_mode == "1"){
@@ -64,7 +70,6 @@ int chooseGameMode(bool &tcp, bool &ai){
         if(game_mode == "3"){
             tcp = true; valid = true; continue;
         }
-        std::cout << TEXT_INVALID_INPUT << std::endl;
+        std::cout << TEXT.at("INVALID_INPUT") << std::endl;
     }
-    return 0;
 }

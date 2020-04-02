@@ -92,14 +92,14 @@ bool Board::gameOver(int id){
     }
     for(int i = 0; i < 2; i++){
         if(score[i] >= 25){
-            std::cout << TEXT_FINAL_SCORE << COLOR[0] << score[0] << RESET << " - " << COLOR[1] << score[1] << RESET << std::endl;
-            std::cout << COLOR[i] << names[i] << RESET << TEXT_WINS << std::endl;
+            std::cout << TEXT.at("FINAL_SCORE") << COLOR[0] << score[0] << RESET << " - " << COLOR[1] << score[1] << RESET << std::endl;
+            std::cout << COLOR[i] << names[i] << RESET << TEXT.at("WINS") << std::endl;
             return true;
         }
     }
     if(score[0] == 24 && score[1] == 24){
-        std::cout << TEXT_FINAL_SCORE << COLOR[0] << score[0] << RESET << " - " << COLOR[1] << score[1] << RESET << std::endl;
-        std::cout << TEXT_TIE << std::endl;
+        std::cout << TEXT.at("FINAL_SCORE") << COLOR[0] << score[0] << RESET << " - " << COLOR[1] << score[1] << RESET << std::endl;
+        std::cout << TEXT.at("TIE") << std::endl;
         return true;
     }
 
@@ -108,7 +108,7 @@ bool Board::gameOver(int id){
             return false;
         }
     }
-    std::cout << std::endl << TEXT_NO_VALID_MOVES << std::endl;
+    std::cout << std::endl << TEXT.at("NO_VALID_MOVES") << std::endl;
     for(int i = 0; i < 6; i++){
         score[1] += board[i];
     }
@@ -125,7 +125,7 @@ void Board::terminate(){
 
 
 void Board::forceEnd(){
-    std::cout << std::endl << TEXT_FORCED_END << std::endl;
+    std::cout << std::endl << TEXT.at("FORCED_END") << std::endl;
     for(int i = 0; i < 6; i++){
         score[1] += board[i];
     }
@@ -149,23 +149,53 @@ bool Board::hasSeeds(int id, std::array<int, 12> arr){
 
 void Board::print() {
     std::cout << std::endl;
-    std::cout << "                         A          B          C          D          E          F"                    << std::endl;
-    std::cout << "     ──────────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────────" << std::endl;
-    std::cout << "                   │          │          │          │          │          │          │"               << std::endl;
-    printSeeds(0);
-    std::cout << "                   │          │          │          │          │          │          │"               << std::endl;
+    printLetters();
+    printBar(true);
+    printDividers(); printSeeds(0); printDividers();
     printMiddle();
-    std::cout << "                   │          │          │          │          │          │          │"               << std::endl;
-    printSeeds(1);
-    std::cout << "                   │          │          │          │          │          │          │"               << std::endl;
-    std::cout << "     ──────────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────────" << std::endl;
-    std::cout << "                         A          B          C          D          E          F"                    << std::endl;
+    printDividers(); printSeeds(1); printDividers();
+    printBar(false);
+    printLetters();
     std::cout << std::endl;
 }
 
+void Board::printLetters() {
+    std::cout << std::setw(LEFT_MARGIN + HOUSE_INDENT + HOUSE_SPACING / 2 + 1);
+    for (char c = 'A'; c <= 'F'; c++) {
+        std::cout << c << std::setw(HOUSE_SPACING);
+    }
+    std::cout << std::setw(0) << std::endl;
+}
+
+void Board::printBar(bool top) {
+    std::string s = top ? "┬" : "┴";
+    std::cout << std::setw(LEFT_MARGIN + 2);
+    for(int i = 0; i < HOUSE_INDENT; i++){
+        std::cout << "─";
+    }
+    std::cout << s;
+    for(int i = 0; i < 6; i++){
+        for(int j = 0; j < HOUSE_SPACING - 1; j++){
+            std::cout << "─";
+        }
+        std::cout << s;
+    }
+    for(int i = 0; i < HOUSE_INDENT; i++){
+        std::cout << "─";
+    }
+    std::cout << std::endl;
+}
+
+void Board::printDividers(){
+    std::cout << std::setw(LEFT_MARGIN + HOUSE_INDENT + 2) << "│";
+    for(int i = 0; i < 6; i++){
+        std::cout << std::setw(HOUSE_SPACING + 2) << "│";
+    }
+    std::cout << std::endl;
+}
 
 void Board::printSeeds(int id){
-    std::cout << std::setw(SCORE_INDENT+2) << "│";
+    std::cout << std::setw(LEFT_MARGIN + HOUSE_INDENT + 2) << "│";
     for(int i = 0; i < 6; i++){
         int position = i;
         if(id == 0)
@@ -176,7 +206,13 @@ void Board::printSeeds(int id){
 }
 
 void Board::printMiddle(){
-    std::cout << COLOR[0] << std::setw(SCORE_INDENT - SCORE_MARGIN) << score[0] << RESET;
-    std::cout << "    ├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤";
-    std::cout <<  COLOR[1] << std::setw(SCORE_MARGIN) << score[1] << RESET << std::endl;
+    std::cout << COLOR[0] << std::setw(LEFT_MARGIN + HOUSE_INDENT - SCORE_MARGIN) << score[0] << RESET;
+    std::cout << std::setw(SCORE_MARGIN + 2) << "├";
+    for(int i = 0; i < 6; i++){
+        for(int j = 0; j < HOUSE_SPACING - 1; j++){
+            std::cout << "─";
+        }
+        if(i != 5) std::cout << "┼";
+    }
+    std::cout <<  "┤" << COLOR[1] << std::setw(SCORE_MARGIN) << score[1] << RESET << std::endl;
 }

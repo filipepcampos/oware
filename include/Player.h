@@ -27,13 +27,13 @@ public:
     char play(Board &board);
 
     std::string name;
-    int id;
 
 private:
     const int NAME_MAX_LEN = 20;
     static int id_counter;
     bool ai = false;
     const bool ai_wait = true;
+    int id;
 
     /**
      * Prompt player for input and make play according to the given input

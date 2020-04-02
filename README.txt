@@ -1,32 +1,70 @@
-Controlos:
-'A', 'B', 'C', 'D', 'E', 'F' ou 'a', 'b', 'c', 'd', 'e', 'f' -> Escolher jogada
+Oware, a turn-based game developed for Linux
+------------------------------------------------------------------------------------------------------------------------
 
-"end" (any case accepted) - Termina o jogo (útil no caso de loops infinitos), os de cada lado do tabuleiro
-são atribuídos ao jogador respetivo.
+All defined objectives were accomplished.
+Improvements:
+    * Object oriented programming that allows for code that's better organized and more modular
+    * Bot that chooses the move that grants the highest immediate score
+    * Two player mode over the network (Only tested within same network)
+    * Centralization of string resources that facilitates any future translation of the game.
+    * Documentation of methods within header files.
 
-Decisões de design:
-O jogo é guardado num std::array<int, 12> cujos indíces correspondem às respetivas posições:
-| 11 | 10 |  9 |  8 |  7 |  6 |
-|  0 |  1 |  2 |  3 |  4 |  5 |
-Esta organização permite simplificar as funções de "sow" e "capture" pois estas seguem o sentido anti-horário,
-ao custo de funções de print e input mais complexas.
+Controls:
+    Choose a play: 'A', 'B', 'C', 'D', 'E', 'F' ou 'a', 'b', 'c', 'd', 'e', 'f'
 
-Todas as strings constantes são guardadas num ficheiro "Text", isto permite à partilha de constantes pelos
-diversos ficheiros (principalmente códigos ANSI). Também facilita a tradução do jogo para outras linguagens com
-facilidade.
+    End the game: "end" (any case accepted). This function is useful in case any infinite loop happens,
+    each player captures all seeds on their side of the board and a winner is declared.
 
-Se ocorrer EOF durante a leitura de input o utilizador receberá uma mensagem a informar que ocorreu um erro
-de IO e o programa irá terminar.
+    If EOF occurs the player will receive a message informing that an IO error has occurred.
 
-Existem 3 modos de jogo:
-1 - Single player: O jogador joga contra um bot que escolhe a jogada que lhe dará mais sementes, é também usada uma
-condição random no caso de haver mais que uma jogada com o número máximo de sementes.
+Game modes:
+    There are 3 game modes available to play:
+    1 - Singleplayer: The player plays against a bot that will choose the move that grants the most immediate seeds,
+    in case of multiple moves that grant the same number of seeds a random condition will be used.
 
-2 - Local two player: Dois jogadores no mesmo computador.
+    2 - Local two player: Two players against each other on the same computer
 
-3 - Network two player: Dois jogadores em computadores diferentes ou no mesmo computador em processos separados.
-Neste modo um dos jogadores será "host", e aparecerá o seu ip no ecrã através do qual outro jogador se pode conectar.
-- O IP é obtido através de uma conecção ao Google DNS (8.8.8.8)
-- Se um processo no computador for "host" e outro processo tentar ser "host" o segundo jogador ligar-se-á ao primeiro
-como client.
-- Se um terceiro jogador tentar-se conectar será recusado.
+    3 - Network two player: Two players on different computers or on the same computer on different processes.
+    In this mode a player will be a "host" and will see on their screen their ip address. The second player can use this
+    address to connect as a "client"
+            - The game is hosted on port 8080 by default (This can be changed in Tcp.h)
+            - There can only be one host per computer, any attempt to host will be redirected to client.
+            - If a third player tries to join a ongoing game the connection will be refused.
+
+Game state storing:
+    The game state is stored on a std::array<int, 12> whose indices correspond to the following positions:
+    | 11 | 10 |  9 |  8 |  7 |  6 |
+    |  0 |  1 |  2 |  3 |  4 |  5 |
+    This organization allows for simple sow and capture function because the game works anti-clockwise.
+
+Strings:
+    All const strings are kept in a separate file to facilitate any change needed.
+    ANSI Codes for HIGHLIGHT_COLOR, COLOR[2] (Colors of each player), CLEAR and RESET are kept in said file allowing
+    every other file to use them.
+    All text displayed on screen is kept on a std::map<std::string, std::string>
+
+Print board:
+                         A          B          C          D          E          F                    printLetters()
+<-1->──────────────┬──────────┬──────────┬──────────┬──────────┬──────────┬──────────┬────────────── printBar(true)
+     <-----2------>│<----3--->│          │          │          │          │          │               printDividers()
+                   │     4    │     4    │     4    │     4    │     4    │     4    │               printSeeds()
+                   │          │          │          │          │          │          │
+              0<4->├──────────┼──────────┼──────────┼──────────┼──────────┼──────────┤    0          printMiddle()
+                   │          │          │          │          │          │          │
+                   │     4    │     4    │     4    │     4    │     4    │     4    │
+                   │          │          │          │          │          │          │
+     ──────────────┴──────────┴──────────┴──────────┴──────────┴──────────┴──────────┴────────────── printBar(false)
+                         A          B          C          D          E          F
+    Dimension constants:
+    1 - LEFT_MARGIN
+    2 - HOUSE_INDENT
+    3 - HOUSE_SPACING
+    4 - SCORE_MARGIN
+
+    std::setw() is used to align the output.
+    Some functions use values like LEFT_MARGIN + 2, the + 2 is used so std::setw() works as intended with unicode
+    characters, the constants are kept as normal values so any needed change is more intuitive.
+
+------------------------------------------------------------------------------------------------------------------------
+Filipe Pinto Campos, up201905609
+MIEC - FEUP

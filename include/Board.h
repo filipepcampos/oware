@@ -39,7 +39,7 @@ public:
      * Additionally number of seeds captured will be returned by parameter
      * @param (char) move - char from 'a' to 'f'
      * @param (int) id - id of the player making the play
-     * @param (int) &seeds - number of seeds captured will be returned through this parameter
+     * @param (int) &seeds_count - number of seeds captured will be returned through this parameter
      * @return (bool) TRUE if play is valid, FALSE otherwise
      */
     bool validatePlay(char move, int id, int &seeds_count);
@@ -67,11 +67,10 @@ public:
 
 private:
     // Sizing of the board
-    const unsigned char TOTAL_WIDTH = 100;
-    const unsigned char LEFT_MARGIN = 5;
-    const unsigned char SCORE_INDENT = 20;
+    const unsigned char HOUSE_INDENT = 14;
     const unsigned char SCORE_MARGIN = 5;
     const unsigned char HOUSE_SPACING = 11;
+    const unsigned char LEFT_MARGIN = 6;
 
     std::array<int, 12> board = {4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4};
     int score[2] = {0};
@@ -81,7 +80,7 @@ private:
     /**
      * Verify if a given player has any seeds. Can be used to check main board or simulated board
      * @param (int) id - id of the player to be checked
-     * @param (std:.array<int, 12>) arr - board to be checked
+     * @param (std::array<int, 12>) arr - board to be checked
      * @return (bool) TRUE if the player has any seeds in their side of the board
      */
     bool hasSeeds(int id, std::array<int, 12> arr);
@@ -109,6 +108,25 @@ private:
      * @return (none)
      */
     void print();
+
+    /**
+     * Print the top or bottom bar depending on bool top (─────────┬──────────┬──────....)
+     * @param (bool) top - If true the top bar will be printed, otherwise the bottom bar will be printed
+     * @return (none)
+     */
+    void printBar(bool top);
+
+    /**
+     * Print letters A B C D E F
+     * @return (none)
+     */
+    void printLetters();
+
+    /**
+     * Print house dividers ( |   |   |   |   | )
+     * @return (none)
+     */
+    void printDividers();
 
     /**
      * Print line with seed numbers (| 4 | 4 | 4 | 4 | 4 | 4 |)
