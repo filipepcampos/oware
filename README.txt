@@ -1,11 +1,11 @@
-Oware, a turn-based game developed for Linux
+                            Oware, a turn-based game developed for Linux
 ------------------------------------------------------------------------------------------------------------------------
 
 All defined objectives were accomplished.
 Improvements:
-    * Object oriented programming that allows for code that's better organized and more modular
+    * Object-oriented programming that allows for code that's better organized and more modular
     * Bot that chooses the move that grants the highest immediate score
-    * Two player mode over the network (Only tested within same network)
+    * Two player mode over the network (Only tested within the same network)
     * Centralization of string resources that facilitates any future translation of the game.
     * Documentation of methods within header files.
 
@@ -22,14 +22,14 @@ Game modes:
     1 - Singleplayer: The player plays against a bot that will choose the move that grants the most immediate seeds,
     in case of multiple moves that grant the same number of seeds a random condition will be used.
 
-    2 - Local two player: Two players against each other on the same computer
+    2 - Local two-player: Two players against each other on the same computer
 
-    3 - Network two player: Two players on different computers or on the same computer on different processes.
-    In this mode a player will be a "host" and will see on their screen their ip address. The second player can use this
+    3 - Network two-player: Two players on different computers or the same computer on different processes.
+    In this mode a player will be a "host" and will see on their screen their IP address. The second player can use this
     address to connect as a "client"
             - The game is hosted on port 8080 by default (This can be changed in Tcp.h)
-            - There can only be one host per computer, any attempt to host will be redirected to client.
-            - If a third player tries to join a ongoing game the connection will be refused.
+            - There can only be one host per computer, any attempt to host will be redirected and become the client.
+            - If a third player tries to join an ongoing game the connection will be refused.
 
 Game state storing:
     The game state is stored on a std::array<int, 12> whose indices correspond to the following positions:
@@ -62,7 +62,7 @@ Print board:
     4 - SCORE_MARGIN
 
     std::setw() is used to align the output.
-    Some functions use values like LEFT_MARGIN + 2, the + 2 is used so std::setw() works as intended with unicode
+    Some functions use values like LEFT_MARGIN + 2, the + 2 is used so std::setw() works as intended with Unicode
     characters, the constants are kept as normal values so any needed change is more intuitive.
 
 ------------------------------------------------------------------------------------------------------------------------
