@@ -19,7 +19,7 @@ namespace Tcp{
     };
 
 
-    void playGame(){
+    void startGame(){
         int sock = 0;
         struct sockaddr_in server_address;
         sock = socket(AF_INET, SOCK_STREAM, 0);
@@ -50,7 +50,7 @@ namespace Tcp{
     }
 
      std::string readIpAddress(){
-         std::cout << std::endl << TEXT.at("IP_ADDRESS_PROMPT") << std::endl;
+         std::cout << CLEAR << std::endl << TEXT.at("IP_ADDRESS_PROMPT") << std::endl;
          std::string ip_address;
          std::cout << "> "; std::getline(std::cin, ip_address);
          if(std::cin.eof()){

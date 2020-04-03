@@ -12,7 +12,7 @@ namespace Tcp{
      * Redirects player to client() if a host is connected, redirects to host() otherwise
      * @return (none)
      */
-    void playGame();
+    void startGame();
 
     /**
      * Create a game as host

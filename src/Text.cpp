@@ -12,6 +12,7 @@ const std::map<std::string, std::string> TEXT = {
         {"GAMEMODE_OPT1",           "- Single player"},
         {"GAMEMODE_OPT2",           "- Local two-player"},
         {"GAMEMODE_OPT3",           "- Network two-player"},
+        {"GAMEMODE_OPT4",           "- Exit game"},
         {"IOERROR",                 "IO Error has occurred."},
         {"INVALID_INPUT",           "Invalid input"},
         {"LEADING_WHITESPACE",     "Please remove leading whitespace"},
