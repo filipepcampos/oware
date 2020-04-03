@@ -15,13 +15,19 @@
   <component name="ChangeListManager">
     <list default="true" id="55905f02-8bd8-41e8-9216-72eaea16d178" name="Default Changelist" comment="/">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Board.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Board.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Player.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Player.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Tcp.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Tcp.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Text.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/Text.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/oware.dir/src/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/oware" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/oware" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/Tcp.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Tcp.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/Board.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Board.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/Player.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/Player.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tcp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tcp.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Text.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Text.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -168,7 +174,12 @@
       <workItem from="1585900826960" duration="25000" />
       <workItem from="1585903659923" duration="60000" />
       <workItem from="1585905179963" duration="1474000" />
-      <workItem from="1585907477828" duration="169000" />
+      <workItem from="1585907477828" duration="983000" />
+      <workItem from="1585910854086" duration="657000" />
+      <workItem from="1585912911809" duration="58000" />
+      <workItem from="1585913062695" duration="38000" />
+      <workItem from="1585914389835" duration="342000" />
+      <workItem from="1585917341765" duration="154000" />
     </task>
     <servers />
   </component>
@@ -236,10 +247,10 @@
       <screen x="0" y="0" width="1463" height="783" />
     </state>
     <state x="212" y="34" key="SettingsEditor/0.0.1463.783@0.0.1463.783" timestamp="1585834971123" />
-    <state x="406" y="215" width="650" height="353" key="com.intellij.ide.util.TipDialog" timestamp="1585907477702">
+    <state x="406" y="215" width="650" height="353" key="com.intellij.ide.util.TipDialog" timestamp="1585917371234">
       <screen x="0" y="0" width="1463" height="783" />
     </state>
-    <state x="406" y="215" width="650" height="353" key="com.intellij.ide.util.TipDialog/0.0.1463.783@0.0.1463.783" timestamp="1585907477702" />
+    <state x="406" y="215" width="650" height="353" key="com.intellij.ide.util.TipDialog/0.0.1463.783@0.0.1463.783" timestamp="1585917371234" />
     <state x="0" y="0" width="762" height="783" key="find.popup" timestamp="1585476450416">
       <screen x="0" y="0" width="1463" height="783" />
     </state>

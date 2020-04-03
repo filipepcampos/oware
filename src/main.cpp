@@ -33,7 +33,7 @@ int main() {
         Player players[2] = {p1, p2};
 
         Board board;
-        board.registerPlayerNames(p1.name, p2.name);
+        board.registerPlayerNames(p1.getName(), p2.getName());
 
         do{
             turn = (turn+1) % 2;
@@ -41,10 +41,7 @@ int main() {
             current_player.play(board);
         } while(!board.gameOver(turn));
 
-        std::cin.get();
-        if(std::cin.peek() != '\n'){
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        }
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
     return 0;
 }
@@ -85,5 +82,6 @@ bool chooseGameMode(bool &tcp, bool &ai){
         }
         std::cout << TEXT.at("INVALID_INPUT") << std::endl;
     }
+    std::cout << CLEAR;
     return true;
 }

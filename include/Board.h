@@ -13,7 +13,7 @@ public:
      * @param (std::string) &name2 - Name of player 2
      * @return (none)
      */
-    void registerPlayerNames(std::string &name1, std::string &name2);
+    void registerPlayerNames(std::string name1, std::string name2);
 
     /**
      * Receive a move to make a play on the board, sowing seeds from a given position.

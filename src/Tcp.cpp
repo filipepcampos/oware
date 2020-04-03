@@ -50,7 +50,7 @@ namespace Tcp{
     }
 
      std::string readIpAddress(){
-         std::cout << CLEAR << std::endl << TEXT.at("IP_ADDRESS_PROMPT") << std::endl;
+         std::cout << std::endl << TEXT.at("IP_ADDRESS_PROMPT") << std::endl;
          std::string ip_address;
          std::cout << "> "; std::getline(std::cin, ip_address);
          if(std::cin.eof()){
@@ -70,12 +70,12 @@ namespace Tcp{
         const int ID = 1;
         Player player(ID);
 
-        const char* name_str = player.name.c_str();
+        const char* name_str = player.getName().c_str();
         send(sock , name_str, strlen(name_str) , 0);
         std::string opponent_name = readOpponentName(sock);
 
         Board board;
-        board.registerPlayerNames(opponent_name, player.name);
+        board.registerPlayerNames(opponent_name, player.getName());
         GameInformation info = {ID, player, opponent_name, board, sock};
         play(info);
     }
@@ -87,11 +87,11 @@ namespace Tcp{
         Player player(ID);
 
         std::string opponent_name = readOpponentName(client_socket);
-        const char* name_str = player.name.c_str();
+        const char* name_str = player.getName().c_str();
         send(client_socket, name_str, strlen(name_str), 0);
 
         Board board;
-        board.registerPlayerNames(player.name, opponent_name);
+        board.registerPlayerNames(player.getName(), opponent_name);
         GameInformation info = {ID, player, opponent_name, board, client_socket};
         play(info);
     }
@@ -131,6 +131,7 @@ namespace Tcp{
             }
         } while(!game.board.gameOver(turn));
         close(game.sock);
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
     int initializeServer(){

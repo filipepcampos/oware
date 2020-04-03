@@ -26,7 +26,11 @@ public:
      */
     char play(Board &board);
 
-    std::string name;
+    /**
+     * Return the player's name
+     * @return (std::string) name
+     */
+    std::string getName();
 
 private:
     const int NAME_MAX_LEN = 20;
@@ -34,6 +38,7 @@ private:
     bool ai = false;
     const bool ai_wait = true;
     int id;
+    std::string name;
 
     /**
      * Prompt player for input and make play according to the given input
@@ -65,7 +70,7 @@ private:
      * Ask player's name
      * @return (none)
      */
-    void getPlayerName();
+    void readPlayerName();
 };
 
 

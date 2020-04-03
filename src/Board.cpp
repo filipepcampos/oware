@@ -8,7 +8,7 @@ Board::Board(){
     print();
 }
 
-void Board::registerPlayerNames(std::string &name1, std::string &name2){
+void Board::registerPlayerNames(std::string name1, std::string name2){
     names[0] = name1;
     names[1] = name2;
 }

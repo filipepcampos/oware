@@ -11,15 +11,19 @@ Player::Player(bool enable_ai) {
     id = id_counter;
     id_counter++;
     ai = enable_ai;
-    getPlayerName();
+    readPlayerName();
 }
 
 Player::Player(int fixed_id){
     id = fixed_id;
-    getPlayerName();
+    readPlayerName();
 }
 
-void Player::getPlayerName(){
+std::string Player::getName(){
+    return name;
+}
+
+void Player::readPlayerName(){
     if(ai)
         name = "AI";
     bool valid = true;
